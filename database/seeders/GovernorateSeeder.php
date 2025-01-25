@@ -15,7 +15,6 @@ class GovernorateSeeder extends Seeder
      */
     public function run(): void
     {
-        // DB::table('governorates')->truncate();
         $governorates = [
             array('name' => ['en'=> 'Cairo', 'ar'=> 'القاهرة'], 'country_id' => 1),
             array('name' => ['en'=> 'El-Jiza', 'ar'=> 'الجيزة'], 'country_id' => 1),

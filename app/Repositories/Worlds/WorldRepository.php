@@ -26,9 +26,10 @@ class WorldRepository
      */
     public function getCountries()
     {
-        $countries = Country::when(!empty(request()->keyword), function ($query) {
-            $query->where('name', 'like', '%' . request()->keyword . '%');
-        })->select('id', 'name', 'phone_code', 'flag_icon', 'is_active')->paginate(5);
+        $countries = Country::withCount('governorates', 'users')
+            ->when(!empty(request()->keyword), function ($query) {
+                $query->where('name', 'like', '%' . request()->keyword . '%');
+            })->paginate(5);
 
         return $countries;
     }
@@ -38,9 +39,12 @@ class WorldRepository
      */
     public function getGovernorates($country)
     {
-        $governorates = $country->governorates()->when(!empty(request()->keyword), function ($query) {
-            $query->where('name', 'LIKE', '%' . request()->keyword . '%');
-        })->paginate(10);
+        $governorates = $country->governorates()
+            ->with('country', 'shippingGoverno')
+            ->withCount('users', 'cities')
+            ->when(!empty(request()->keyword), function ($query) {
+                $query->where('name', 'LIKE', '%' . request()->keyword . '%');
+            })->paginate(10);
 
         return $governorates;
     }
@@ -68,7 +72,7 @@ class WorldRepository
     /**
      * Summary of changeShippingPrice
      * @param mixed $governorate
-     * @param mixed $request
+     * @param mixed $price
      */
     public function changeShippingPrice($governorate, $price)
     {

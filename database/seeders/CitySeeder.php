@@ -14,8 +14,6 @@ class CitySeeder extends Seeder
      */
     public function run(): void
     {
-        // DB::table('cities')->truncate();
-
         $cities = [
             [
                 "governorate_id"=> 1,
