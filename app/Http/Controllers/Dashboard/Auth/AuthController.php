@@ -33,12 +33,12 @@ class AuthController extends Controller implements HasMiddleware
         if($this->authService->login($credentials, 'admin', $request->remember)) {
             return redirect()->intended(route('dashboard.Welcome'));
         } else {
-            return redirect()->back()->withErrors(['email', __('auth.not_match')]);
+            return redirect()->back()->with('error', __('auth.not_match'));
         }
     }
     public function logout()
     {
         $this->authService->logout('admin');
-        return redirect()->route('dashboard.login');
+        return redirect()->route('dashboard.login')->with('success', __('auth.logout'));
     }
 }
