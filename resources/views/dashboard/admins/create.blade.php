@@ -13,9 +13,9 @@
                                     href="{{route('dashboard.Welcome')}}">{{__('dashboard.dashboard')}}</a>
                             </li>
                             <li class="breadcrumb-item"><a
-                                    href="{{route('dashboard.admins.index')}}">{{__('dashboard.role')}}</a>
+                                    href="{{route('dashboard.admins.index')}}">{{__('dashboard.admin')}}</a>
                             </li>
-                            <li class="breadcrumb-item active"><a href="#">{{__('dashboard.create_role')}}</a>
+                            <li class="breadcrumb-item active"><a href="#">{{__('dashboard.create_admin')}}</a>
                             </li>
                         </ol>
                     </div>

@@ -4,6 +4,7 @@ use App\Http\Controllers\Dashboard\Admins\AdminController;
 use App\Http\Controllers\Dashboard\Auth\AuthController;
 use App\Http\Controllers\Dashboard\Auth\Password\ForgetPasswordController;
 use App\Http\Controllers\Dashboard\Auth\Password\ResetPasswordController;
+use App\Http\Controllers\Dashboard\Categories\CategoryController;
 use App\Http\Controllers\Dashboard\Roles\RoleController;
 use App\Http\Controllers\Dashboard\WelcomeController;
 use App\Http\Controllers\Dashboard\Worlds\WorldController;
@@ -56,7 +57,12 @@ Route::group(
                     Route::put('shipping-price', 'changeShippingPrice')->name('shipping.price');
                 });
             });
-
+            // Routes categories
+            Route::group(['middleware' => 'can:categories', 'controller' => CategoryController::class], function () {
+                Route::resource('categories', CategoryController::class);
+                Route::get('categories-all', 'getCategories')->name('categories.all');
+                Route::get('category-status/{id}', 'changeStatus')->name('categories.change.status');
+            });
         });
 
     }

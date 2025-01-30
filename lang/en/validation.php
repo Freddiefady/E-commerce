@@ -177,9 +177,9 @@ return [
             'rule-name' => 'custom-message',
         ],
         'g-recaptcha-response' => [
-        'required' => 'Please verify that you are not a robot.',
-        'captcha' => 'Captcha error! try again later or contact site admin.',
-    ],
+            'required' => 'Please verify that you are not a robot.',
+            'captcha' => 'Captcha error! try again later or contact site admin.',
+        ],
     ],
 
     /*
@@ -193,6 +193,11 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'role.ar' => 'Role name with arabic',
+        'role.en' => 'Role name with english',
+        'name.ar' => 'Name with arabic',
+        'name.en' => 'Name with english',
+    ],
 
 ];
