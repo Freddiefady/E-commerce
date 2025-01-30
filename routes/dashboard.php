@@ -61,6 +61,7 @@ Route::group(
             Route::group(['middleware' => 'can:categories', 'controller' => CategoryController::class], function () {
                 Route::resource('categories', CategoryController::class);
                 Route::get('categories-all', 'getCategories')->name('categories.all');
+                Route::get('category-status/{id}', 'changeStatus')->name('categories.change.status');
             });
         });
 

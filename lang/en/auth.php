@@ -21,6 +21,8 @@ return [
     'logout' => 'Logout',
     'email' => 'Email Address',
     'name' => 'Name',
+    'name_en' => 'Name With English',
+    'name_ar' => 'Name with Arabic',
     'remember_me' => 'Remember me',
     'password' => 'Password',
     'confirm_password' => 'Confirm Password',

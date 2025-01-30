@@ -94,7 +94,7 @@
                                         <td>
                                             <div id="status_{{$country->id}}" class="badge badge-pill badge-border border-info success">
                                                 {{$country->is_active}}
-                                            </div>
+                                            </div> 
                                         </td>
                                         <td>
                                             <input type="checkbox" class="switch change_status" id="switch5"

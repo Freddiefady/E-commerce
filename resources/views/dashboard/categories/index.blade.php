@@ -19,7 +19,7 @@
                     </div>
                 </div>
             </div>
-            @include('components.button-actions')
+            <!-- @include('components.button-actions') -->
         </div>
         <!-- Basic Tables start -->
         <div class="row">
@@ -76,10 +76,8 @@
 </div>
 </div>
 @endsection
-@push('css')
-
-@endpush
 @push('js')
+    // INFO: DatatableYajra
     <script>
         var lang = "{{app()->getLocale()}}";
         $('#DatatableYajra').DataTable({
@@ -126,6 +124,7 @@
             }
         });
     </script>
+    // INFO: script for swal
     <script>
 let title = "{{__('dashboard.title_swal')}}";
 let text = "{{__('dashboard.text_swal')}}";
