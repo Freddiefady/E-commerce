@@ -37,6 +37,7 @@ return [
     'dashboard' => 'dashboard',
     'profile' => 'Profile',
     'settings' => 'Settings',
+    'login_message' => 'Login Successfully',
     'logout_message' => 'Logout Successfully',
     'not_match' => 'Invalid credentials',
     'code' => 'Enter your 6 digits',
