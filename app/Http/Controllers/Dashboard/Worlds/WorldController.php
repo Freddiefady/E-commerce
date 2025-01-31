@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Dashboard\Worlds;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\Worlds\WorldService;
-use App\Http\Requests\ChangeShippingPrice;
+use App\Http\Requests\Dashboard\ChangeShippingPrice;
 
 class WorldController extends Controller
 {

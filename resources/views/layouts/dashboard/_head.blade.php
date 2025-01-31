@@ -39,7 +39,6 @@
     <!-- BEGIN Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard')}}/style-rtl.css">
     <!-- END Custom CSS-->
-
     @else
 
     <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard')}}/css/vendors.css">
@@ -60,3 +59,21 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard')}}/style.css">
     <!-- END Custom CSS-->
     @endif
+    <!-- DataTables CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.2.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/3.2.1/css/buttons.bootstrap5.min.css">
+    <!-- responsive CDN -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/responsive/3.0.3/css/responsive.bootstrap5.min.css">
+    <!-- colReorder AND RowRecorder CDN -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/colreorder/2.0.4/css/colReorder.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/rowreorder/1.5.0/css/rowReorder.bootstrap5.min.css">
+    <!-- fixedHeader CDN -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/fixedheader/4.0.1/css/fixedHeader.bootstrap5.min.css">
+    <!-- Scroller CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/scroller/2.4.3/css/scroller.bootstrap5.min.css">
+    <!-- Select CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/3.0.0/css/select.bootstrap5.min.css">

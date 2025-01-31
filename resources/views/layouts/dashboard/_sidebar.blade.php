@@ -1,12 +1,12 @@
 <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-active="true">
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
-                        data-i18n="nav.dash.main">Dashboard</span><span
+            <li class="nav-item"><a href=""><i class="la la-dashboard"></i><span class="menu-title"
+                        data-i18n="nav.dash.main">{{__('dashboard.dashboard')}}</span><span
                         class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="dashboard-ecommerce.html"
-                            data-i18n="nav.dash.ecommerce">eCommerce</a>
+                    <li class="active"><a class="menu-item" href=""
+                            data-i18n="nav.dash.ecommerce">{{__('dashboard.')}}</a>
                     </li>
                     <li><a class="menu-item" href="dashboard-crypto.html" data-i18n="nav.dash.crypto">Crypto</a>
                     </li>
@@ -14,6 +14,34 @@
                     </li>
                 </ul>
             </li>
+            @can('categories')
+            <li class="nav-item"><a href=""><i class="la la-home"></i><span class="menu-title"
+                        data-i18n="nav.dash.main">{{__('dashboard.categories')}}</span><span
+                        class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
+                <ul class="menu-content">
+                    <li><a class="menu-item" href="{{route('dashboard.categories.index')}}"
+                            data-i18n="nav.dash.ecommerce">{{__('dashboard.categories')}}</a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('dashboard.categories.create')}}" data-i18n="nav.dash.crypto">{{__('dashboard.create_category')}}</a>
+                    </li>
+                </ul>
+            </li>
+            @endcan
+            @can('brands')
+            <li class="nav-item"><a href=""><i class="la la-home"></i><span class="menu-title"
+                        data-i18n="nav.dash.main">{{__('dashboard.brands')}}</span><span
+                        class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
+                <ul class="menu-content">
+                    <li><a class="menu-item" href=""
+                            data-i18n="nav.dash.ecommerce">{{__('dashboard.create_brand')}}</a>
+                    </li>
+                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">Crypto</a>
+                    </li>
+                    <li><a class="menu-item" href="" data-i18n="nav.dash.sales">Sales</a>
+                    </li>
+                </ul>
+            </li>
+            @endcan
             @can('roles')
                 <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
                             data-i18n="nav.templates.main">{{__('dashboard.roles')}}</span></a>
@@ -53,12 +81,13 @@
                                 data-i18n="nav.templates.vert.main">{{__('dashboard.country')}}</a>
                         </li>
                         <li>
-                            <a class="menu-item" href="{{route('dashboard.admins.create')}}"
-                                data-i18n="nav.templates.horz.main">{{__('dashboard.create_admin')}}</a>
+                            <a class="menu-item" href=""
+                                data-i18n="nav.templates.horz.main">{{__('dashboard.cities')}}</a>
                         </li>
                     </ul>
                 </li>
             @endcan
+
             <li class=" navigation-header">
                 <span data-i18n="nav.category.layouts">Layouts</span><i class="la la-ellipsis-h ft-minus"
                     data-toggle="tooltip" data-placement="right" data-original-title="Layouts"></i>
