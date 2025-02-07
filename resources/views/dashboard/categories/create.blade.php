@@ -42,7 +42,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            @include('components.alert-error')
+                            @include('components.validation-error')
                             <p class="card-text">As well as being able to pass language information to DataTables
                                 through the language initialization option, you can also store
                                 the language information in a file, which DataTables can load

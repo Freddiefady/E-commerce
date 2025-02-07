@@ -54,7 +54,7 @@
                                             </div>
                                             <div class="col-md-6 col-12 text-center text-md-right"><a
                                                     href="{{route('dashboard.password.forget')}}"
-                                                    class="card-link">{{__('auth.forgot_password')}}?</a></div>
+                                                    class="card-link">{{__('auth.forgot_password')}}</a></div>
                                         </div>
                                         <fieldset
                                             class="form-group position-relative has-icon-left d-flex justify-content-center">

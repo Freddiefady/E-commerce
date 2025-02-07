@@ -22,24 +22,16 @@
     <script src="https://cdn.datatables.net/2.2.1/js/dataTables.min.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/2.2.1/js/dataTables.bootstrap5.min.js" type="text/javascript"></script>
     <!-- responsive CDN -->
-    <script src="https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.min.js"
-        type="text/javascript"></script>
-    <script src="https://cdn.datatables.net/responsive/3.0.3/js/responsive.bootstrap5.min.js"
-        type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.3/js/responsive.bootstrap5.min.js" type="text/javascript"></script>
     <!-- colReorder AND RowRecorder CDN -->
-    <script src="https://cdn.datatables.net/colreorder/2.0.4/js/dataTables.colReorder.min.js"
-        type="text/javascript"></script>
-    <script src="https://cdn.datatables.net/colreorder/2.0.4/js/colReorder.bootstrap5.min.js"
-        type="text/javascript"></script>
-    <script src="https://cdn.datatables.net/rowreorder/1.5.0/js/dataTables.rowReorder.min.js"
-        type="text/javascript"></script>
-    <script src="https://cdn.datatables.net/rowreorder/1.5.0/js/rowReorder.bootstrap5.min.js"
-        type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/colreorder/2.0.4/js/dataTables.colReorder.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/colreorder/2.0.4/js/colReorder.bootstrap5.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/rowreorder/1.5.0/js/dataTables.rowReorder.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/rowreorder/1.5.0/js/rowReorder.bootstrap5.min.js" type="text/javascript"></script>
     <!-- fixedHeader CDN -->
-    <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/dataTables.fixedHeader.min.js"
-        type="text/javascript"></script>
-    <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/fixedHeader.bootstrap5.min.js"
-        type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/dataTables.fixedHeader.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/fixedHeader.bootstrap5.min.js" type="text/javascript"></script>
     <!-- Scroller CDN -->
     <script src="https://cdn.datatables.net/scroller/2.4.3/js/dataTables.scroller.min.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/scroller/2.4.3/js/scroller.bootstrap5.min.js" type="text/javascript"></script>
@@ -63,3 +55,22 @@
     <!-- Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<!--  -->
+    <script src="{{asset('vendor/fileinput/js/fileinput.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('vendor/fileinput/themes/fa5/theme.min.js')}}" type="text/javascript"></script>
+    @if (config('app.locale') == 'ar')
+    <script src="{{asset('vendor/fileinput/js/locales/LANG.js')}}" type="text/javascript"></script>
+    <script src="{{asset('vendor/fileinput/js/locales/ar.js')}}" type="text/javascript"></script>
+    @endif
+    <script>
+        var lang = "{{app()->getLocale()}}";
+    $(function() {
+            $('#singleImage').fileinput({
+                theme: 'fa5',
+                language: lang,
+                allowedFileTypes: ['image'],
+                maxFileCount: 1,
+                showUpload:false,
+            });
+        });
+    </script>
