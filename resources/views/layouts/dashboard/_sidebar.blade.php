@@ -17,7 +17,7 @@
             @can('categories')
                 <li class="nav-item"><a href=""><i class="la la-home"></i><span class="menu-title"
                             data-i18n="nav.dash.main">{{__('dashboard.categories')}}</span><span
-                            class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
+                            class="badge badge badge-info badge-pill float-right mr-2">{{$categories_count}}</span></a>
                     <ul class="menu-content">
                         <li><a class="menu-item" href="{{route('dashboard.categories.index')}}"
                                 data-i18n="nav.dash.ecommerce">{{__('dashboard.categories')}}</a>
@@ -31,7 +31,7 @@
             @can('brands')
                 <li class="nav-item"><a href=""><i class="la la-home"></i><span class="menu-title"
                             data-i18n="nav.dash.main">{{__('dashboard.brands')}}</span><span
-                            class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
+                            class="badge badge badge-info badge-pill float-right mr-2">{{$brands_count}}</span></a>
                     <ul class="menu-content">
                         <li><a class="menu-item" href="{{route('dashboard.brands.index')}}"
                                 data-i18n="nav.dash.ecommerce">{{__('dashboard.brands')}}</a>
