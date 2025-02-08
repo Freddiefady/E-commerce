@@ -4,6 +4,7 @@ namespace App\Services\Brands;
 
 use App\Repositories\Brands\BrandRepository;
 use App\Utils\ImageManager;
+use Illuminate\Support\Facades\Cache;
 use Yajra\DataTables\DataTables;
 
 class BrandService
@@ -55,6 +56,7 @@ class BrandService
             $fileName = $this->imageManager->uploadSingleImage($data['logo'], '/', 'brands');
             $data['logo'] = $fileName;
         }
+        self::BrandCache();
         return $this->brandRepository->create($data);
     }
     public function updateBrand($id, $data)
@@ -74,7 +76,9 @@ class BrandService
         if ($brand['logo'] != null) {
             $this->imageManager->deleteImageFromLocal($brand->logo);
         }
-        return $this->brandRepository->destroy($brand);
+        $brands = $this->brandRepository->destroy($brand);
+        self::BrandCache();
+        return $brands;
     }
     public function changeStatus($id)
     {
@@ -83,5 +87,11 @@ class BrandService
             return false;
         }
         return true;
+    }
+
+    private function BrandCache()
+    {
+        Cache::forget('categories_count');
+        Cache::forget('brands_count');
     }
 }
