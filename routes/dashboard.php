@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\Auth\Password\ForgetPasswordController;
 use App\Http\Controllers\Dashboard\Auth\Password\ResetPasswordController;
 use App\Http\Controllers\Dashboard\brands\BrandController;
 use App\Http\Controllers\Dashboard\Categories\CategoryController;
+use App\Http\Controllers\Dashboard\Coupons\CouponController;
 use App\Http\Controllers\Dashboard\Roles\RoleController;
 use App\Http\Controllers\Dashboard\WelcomeController;
 use App\Http\Controllers\Dashboard\Worlds\WorldController;
@@ -46,31 +47,35 @@ Route::group(
             ///TODO Worlds
             Route::group(['middleware' => 'can:global_shipping', 'controller' => WorldController::class], function () {
                 //* countries
-                Route::prefix('countries')->name('countries.')->group(function(){
+                Route::prefix('countries')->name('countries.')->group(function () {
                     Route::get('/', 'getCountries')->name('index');
                     Route::get('{country_id}/governorates', 'getGovByCountry')->name('gov.index');
                     Route::get('{gov_id}/cities', 'getCitiesByGovId')->name('cities.index');
                     Route::get('change_status/{country_id}', 'changeStatus')->name('change.status');
                 });
                 //* governorates
-                Route::prefix('governorates/')->name('governo.')->group(function(){
+                Route::prefix('governorates/')->name('governo.')->group(function () {
                     Route::get('change_status/{governo_id}', 'changeGovernoStatus')->name('change.status');
                     Route::put('shipping-price', 'changeShippingPrice')->name('shipping.price');
                 });
             });
             //* categories
             Route::group(['middleware' => 'can:categories', 'controller' => CategoryController::class], function () {
-                Route::resource('categories', CategoryController::class);
+                Route::resource('categories', CategoryController::class)->except('show');
                 Route::get('categories-all', 'getCategories')->name('categories.all');
                 Route::get('category-status/{id}', 'changeStatus')->name('categories.change.status');
             });
             //* Brands
-            Route::group(['middleware'=> 'can:brands', 'controller'=> BrandController::class], function (){
-                Route::resource('brands', BrandController::class);
+            Route::group(['middleware' => 'can:brands', 'controller' => BrandController::class], function () {
+                Route::resource('brands', BrandController::class)->except('show');
                 Route::get('brands-all', 'getBrands')->name('brands.all');
                 Route::get('brand-status/{id}', 'changeStatus')->name('brands.change.status');
             });
+            //TODO: Coupons
+            Route::group(['middleware' => 'can:coupons', 'controller' => CouponController::class], function () {
+                Route::resource('coupons',CouponController::class);
+                Route::get(uri: 'coupons-all', action: 'getCoupons')->name('coupons.all');
+            });
         });
-
     }
 );

@@ -57,6 +57,17 @@
                     </ul>
                 </li>
             @endcan
+            @can('coupons')
+                <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
+                            data-i18n="nav.templates.main">{{__('dashboard.coupons')}}</span></a>
+                    <ul class="menu-content">
+                        <li>
+                            <a class="menu-item" href="{{route('dashboard.coupons.index')}}"
+                                data-i18n="nav.templates.vert.main">{{__('dashboard.coupons')}}</a>
+                        </li>
+                    </ul>
+                </li>
+            @endcan
             @can('admins')
                 <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
                             data-i18n="nav.templates.main">{{__('dashboard.admins')}}</span></a>

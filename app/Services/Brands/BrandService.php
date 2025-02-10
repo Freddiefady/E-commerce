@@ -26,7 +26,7 @@ class BrandService
         }
         return $brand;
     }
-    public function getBrandsForDataTales()
+    public function getBrandsForDataTables()
     {
         $brands = $this->brandRepository->getBrands();
 

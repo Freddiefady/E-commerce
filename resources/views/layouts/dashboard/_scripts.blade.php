@@ -54,8 +54,57 @@
     <script src="{{asset('assets/dashboard/vendors/js/tables/jszip.min.js')}}" type="text/javascript"></script>
     <!-- Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        let title = "{{__('dashboard.title_swal')}}";
+        let text = "{{__('dashboard.text_swal')}}";
+        let confirmText = "{{__('dashboard.confirm_text_swal')}}";
+        let CancelText = "{{__('dashboard.Cancel_text_swal')}}";
+        let deletedTitle = "{{__('dashboard.deleted_title_swal')}}";
+        let deletedText = "{{__('dashboard.deleted_text_swal')}}";
+        let cancelledTitle = "{{__('dashboard.cancelled_text_swal')}}";
+        let cancelledText = "{{__('dashboard.cancel_text_swal')}}";
+        $(document).on('click', '.delete', function (e) {
+            e.preventDefault();
+            form = $(this).closest('form');
 
-<!--  -->
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: "btn btn-success",
+                    cancelButton: "btn btn-danger"
+                },
+                buttonsStyling: true
+            });
+            swalWithBootstrapButtons.fire({
+                title: title,
+                text: text,
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: confirmText,
+                cancelButtonText: cancelledText,
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                    swalWithBootstrapButtons.fire({
+                        title: deletedTitle,
+                        text: deletedText,
+                        icon: "success"
+                    });
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        title: cancelledTitle,
+                        text: cancelledText,
+                        icon: "error"
+                    });
+                }
+            });
+        });
+    </script>
+
+    <!-- fileinput -->
     <script src="{{asset('vendor/fileinput/js/fileinput.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('vendor/fileinput/themes/fa5/theme.min.js')}}" type="text/javascript"></script>
     @if (config('app.locale') == 'ar')
