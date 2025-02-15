@@ -7,6 +7,7 @@ use App\Http\Controllers\Dashboard\Auth\Password\ResetPasswordController;
 use App\Http\Controllers\Dashboard\brands\BrandController;
 use App\Http\Controllers\Dashboard\Categories\CategoryController;
 use App\Http\Controllers\Dashboard\Coupons\CouponController;
+use App\Http\Controllers\Dashboard\Faqs\FaqController;
 use App\Http\Controllers\Dashboard\Roles\RoleController;
 use App\Http\Controllers\Dashboard\WelcomeController;
 use App\Http\Controllers\Dashboard\Worlds\WorldController;
@@ -76,6 +77,8 @@ Route::group(
                 Route::resource('coupons',CouponController::class);
                 Route::get(uri: 'coupons-all', action: 'getCoupons')->name('coupons.all');
             });
+            //TODO: Faqs
+            Route::resource('faqs', FaqController::class)->except(['create', 'show', 'edit'])->middleware('can:faqs');
         });
     }
 );
