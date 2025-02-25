@@ -26,7 +26,7 @@ return [
     'remember_me' => 'Remember me',
     'password' => 'Password',
     'confirm_password' => 'Confirm Password',
-    'forgot_password' => 'Forgot Password?',
+    'forgot_password' => '? Forgot Password',
     'reset_password' => 'Reset Password',
     'send_password_reset_link' => 'Send Password Reset Link',
     'password_reset' => 'Password Reset',

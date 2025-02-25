@@ -80,12 +80,12 @@
                                         </td>
                                         <td>
                                             <div class="badge badge-pill badge-border border-success success">
-                                                {{$governorate->cities->count()}}
+                                                {{$governorate->cities_count}}
                                             </div>
                                         </td>
                                         <td>
                                             <div class="badge badge-pill badge-border border-primary success">
-                                                {{$governorate->users->count()}}
+                                                {{$governorate->users_count}}
                                             </div>
                                         </td>
                                         <td>

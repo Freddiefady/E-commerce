@@ -14,8 +14,6 @@ class CountrySeeder extends Seeder
      */
     public function run(): void
     {
-        // DB::table('countries')->truncate();
-
         $countries = [
             [
                 'id' => 1,
