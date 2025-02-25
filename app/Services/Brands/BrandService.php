@@ -61,7 +61,7 @@ class BrandService
     {
         $brand = self::getBrandById($id);
 
-        if ($data['logo'] != null) {
+        if (array_key_exists('logo', $data) && $data['logo'] != null) {
             $this->imageManager->deleteImageFromLocal($brand->logo);
             $fileName = $this->imageManager->uploadSingleImage($data['logo'], '/', 'brands');
             $data['logo'] = $fileName;
