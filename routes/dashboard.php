@@ -9,6 +9,7 @@ use App\Http\Controllers\Dashboard\Categories\CategoryController;
 use App\Http\Controllers\Dashboard\Coupons\CouponController;
 use App\Http\Controllers\Dashboard\Faqs\FaqController;
 use App\Http\Controllers\Dashboard\Roles\RoleController;
+use App\Http\Controllers\Dashboard\Settings\SettingsController;
 use App\Http\Controllers\Dashboard\WelcomeController;
 use App\Http\Controllers\Dashboard\Worlds\WorldController;
 use Illuminate\Support\Facades\Route;
@@ -75,10 +76,15 @@ Route::group(
             //TODO: Coupons
             Route::group(['middleware' => 'can:coupons', 'controller' => CouponController::class], function () {
                 Route::resource('coupons',CouponController::class);
-                Route::get(uri: 'coupons-all', action: 'getCoupons')->name('coupons.all');
+                Route::get('coupons-all','getCoupons')->name('coupons.all');
             });
             //TODO: Faqs
             Route::resource('faqs', FaqController::class)->except(['create', 'show', 'edit'])->middleware('can:faqs');
+            //TODO: Settings
+            Route::group(['prefix' => 'settings/', 'as' => 'settings.', 'middleware' => 'can:settings', 'controller' => SettingsController::class],function () {
+                Route::get('/','index')->name('index');
+                Route::put('{id}','update')->name('update');
+            });
         });
     }
 );

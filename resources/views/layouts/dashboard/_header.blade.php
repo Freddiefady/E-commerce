@@ -10,8 +10,8 @@
                     <li class="nav-item mr-auto">
                         <a class="navbar-brand" href="index.html">
                             <img class="brand-logo" alt="modern admin logo"
-                                src="{{asset('assets/dashboard')}}/images/logo/logo.png">
-                            <h3 class="brand-text">Modern Admin</h3>
+                                src="{{asset($settings->logo)}}">
+                            <h3 class="brand-text">{{ $settings->site_name }}</h3>
                         </a>
                     </li>
                     <li class="nav-item d-none d-md-block float-right"><a class="nav-link modern-nav-toggle pr-0"
