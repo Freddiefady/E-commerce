@@ -77,6 +77,9 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/scroller/2.4.3/css/scroller.bootstrap5.min.css">
     <!-- Select CDN -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/3.0.0/css/select.bootstrap5.min.css">
+<<<<<<< HEAD
     <!-- Fileinput -->
     <link rel="stylesheet" href="{{asset('vendor/fileinput/css/fileinput.min.css')}}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" crossorigin="anonymous">
+=======
+>>>>>>> main

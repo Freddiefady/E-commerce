@@ -23,14 +23,21 @@ class CategoryService
         ->addColumn('name', function($category){
             return $category->getTranslation('name', app()->getLocale());
         })
+<<<<<<< HEAD
         ->addColumn('products_count', function($category){
             return $category->products->count() == 0 ? trans('dashboard.no_data') : $category->products->count();
         })
+=======
+>>>>>>> main
         ->addColumn('date', function ($category): mixed {
             return $category->created_at;
         })
         ->addColumn('action', function ($category) {
+<<<<<<< HEAD
             return view('dashboard.categories.datatables.yajra-action', compact('category'));
+=======
+            return view('components.yajra-action', compact('category'));
+>>>>>>> main
         })
         ->make(true);
     }

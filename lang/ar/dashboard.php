@@ -80,21 +80,34 @@ return [
     'msg_governorate_status' => 'تم تغيير حالة المحافظة بنجاح',
     'msg_success_change_status_admin' => 'تم تغيير حالة المسؤول بنجاح.',
     'msg_success_change_status_category' => 'تم تغيير حالة القسم بنجاح.',
+<<<<<<< HEAD
     'msg_success_change_status_brand' => 'تم تغيير حالة العلامة تجارية بنجاح.',
+=======
+>>>>>>> main
     'msg_success_admin' => 'تم إنشاء المسؤول بنجاح.',
     'msg_success_update_admin' => 'تم تحديث المسؤول بنجاح.',
     'msg_success_delete_admin' => 'تم الحذف بواسطة المشرف بنجاح.',
     'msg_success_category' => 'تم إنشاء قسم بنجاح',
     'msg_success_update_category' => 'تم تحديث قسم بنجاح.',
     'msg_success_delete_category' => 'تم حذف قسم بنجاح.',
+<<<<<<< HEAD
     'msg_success_brand' => 'تم إنشاء علامة تجارية بنجاح.',
     'msg_success_update_brand' => 'تم تحديث علامة تجارية بنجاح.',
     'msg_success_delete_brand' => 'تم حذف علامة تجارية بنجاح.',
+=======
+    'msg_success_brands' => 'تم إنشاء علامة تجارية بنجاح.',
+    'msg_success_update_brands' => 'تم تحديث علامة تجارية بنجاح.',
+    'msg_success_delete_brands' => 'تم حذف علامة تجارية بنجاح.',
+>>>>>>> main
     'msg_error_admin' => 'لم يتم العثور على المسؤول',
     'msg_error_country' => 'لم يتم العثور على البلد',
     'msg_error_governorate' => 'لم يتم العثور على المحافظة',
     'msg_error_category' => 'لم يتم العثور على القسم المحدد',
+<<<<<<< HEAD
     'msg_error_brand' => 'لم يتم العثور على العلامة التجارية المحدده',
+=======
+    'msg_error_brands' => 'لم يتم العثور على العلامة التجارية المحدده',
+>>>>>>> main
     'msg_error_product' => 'لم يتم العثور على المنتج',
     'done_change' => 'تم التغيير',
     'msg_success' => 'العملية تمت بنجاح',

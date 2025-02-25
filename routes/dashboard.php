@@ -4,7 +4,10 @@ use App\Http\Controllers\Dashboard\Admins\AdminController;
 use App\Http\Controllers\Dashboard\Auth\AuthController;
 use App\Http\Controllers\Dashboard\Auth\Password\ForgetPasswordController;
 use App\Http\Controllers\Dashboard\Auth\Password\ResetPasswordController;
+<<<<<<< HEAD
 use App\Http\Controllers\Dashboard\brands\BrandController;
+=======
+>>>>>>> main
 use App\Http\Controllers\Dashboard\Categories\CategoryController;
 use App\Http\Controllers\Dashboard\Roles\RoleController;
 use App\Http\Controllers\Dashboard\WelcomeController;
@@ -58,18 +61,25 @@ Route::group(
                     Route::put('shipping-price', 'changeShippingPrice')->name('shipping.price');
                 });
             });
+<<<<<<< HEAD
             //* categories
+=======
+            // Routes categories
+>>>>>>> main
             Route::group(['middleware' => 'can:categories', 'controller' => CategoryController::class], function () {
                 Route::resource('categories', CategoryController::class);
                 Route::get('categories-all', 'getCategories')->name('categories.all');
                 Route::get('category-status/{id}', 'changeStatus')->name('categories.change.status');
             });
+<<<<<<< HEAD
             //* Brands
             Route::group(['middleware'=> 'can:brands', 'controller'=> BrandController::class], function (){
                 Route::resource('brands', BrandController::class);
                 Route::get('brands-all', 'getBrands')->name('brands.all');
                 Route::get('brand-status/{id}', 'changeStatus')->name('brands.change.status');
             });
+=======
+>>>>>>> main
         });
 
     }

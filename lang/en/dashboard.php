@@ -18,7 +18,10 @@ return [
     'create_role' => 'Create Role',
     'edit_role' => 'Edit Role',
     'edit_category' => 'Edit Category',
+<<<<<<< HEAD
     'edit_brand' => 'Edit Brand',
+=======
+>>>>>>> main
     'edit_product' => 'Edit Product',
     'delete_role' => 'Delete Role',
     'role_name' => 'Role Name',
@@ -75,21 +78,33 @@ return [
     'msg_governorate_status' => 'Governorate status changed successfully',
     'msg_success_change_status_admin' => 'Admin status changed successfully.',
     'msg_success_change_status_category' => 'Category status changed successfully.',
+<<<<<<< HEAD
     'msg_success_change_status_brand' => 'Brand status changed successfully.',
+=======
+>>>>>>> main
     'msg_success_admin' => 'Admin created successfully.',
     'msg_success_category' => 'Category created successfully.',
     'msg_success_update_category' => 'Category updated successfully.',
     'msg_success_delete_category' => 'Category deleted successfully.',
+<<<<<<< HEAD
     'msg_success_brand' => 'Brand created successfully.',
     'msg_success_update_brand' => 'Brand updated successfully.',
     'msg_success_delete_brand' => 'Brand deleted successfully.',
+=======
+    'msg_success_brands' => 'Brands created successfully.',
+    'msg_success_update_brands' => 'Brands updated successfully.',
+    'msg_success_delete_brands' => 'Brands deleted successfully.',
+>>>>>>> main
     'msg_success_update_admin' => 'Admin updated successfully.',
     'msg_success_delete_admin' => 'Admin deleted successfully.',
     'msg_error_admin' => 'Admin not found.',
     'msg_error_country' => 'Country not found',
     'msg_error_governorate' => 'Governorate not found',
     'msg_error_category' => 'Category not found',
+<<<<<<< HEAD
     'msg_error_brand' => 'Brand not found',
+=======
+>>>>>>> main
     'done_change' => 'It has been changed.',
     'msg_success' => 'Operation Successfully',
     'msg_error' => 'Operation Error',

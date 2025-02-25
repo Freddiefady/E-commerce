@@ -15,6 +15,7 @@
                 </ul>
             </li>
             @can('categories')
+<<<<<<< HEAD
                 <li class="nav-item"><a href=""><i class="la la-home"></i><span class="menu-title"
                             data-i18n="nav.dash.main">{{__('dashboard.categories')}}</span><span
                             class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
@@ -41,6 +42,34 @@
                         </li>
                     </ul>
                 </li>
+=======
+            <li class="nav-item"><a href=""><i class="la la-home"></i><span class="menu-title"
+                        data-i18n="nav.dash.main">{{__('dashboard.categories')}}</span><span
+                        class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
+                <ul class="menu-content">
+                    <li><a class="menu-item" href="{{route('dashboard.categories.index')}}"
+                            data-i18n="nav.dash.ecommerce">{{__('dashboard.categories')}}</a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('dashboard.categories.create')}}" data-i18n="nav.dash.crypto">{{__('dashboard.create_category')}}</a>
+                    </li>
+                </ul>
+            </li>
+            @endcan
+            @can('brands')
+            <li class="nav-item"><a href=""><i class="la la-home"></i><span class="menu-title"
+                        data-i18n="nav.dash.main">{{__('dashboard.brands')}}</span><span
+                        class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
+                <ul class="menu-content">
+                    <li><a class="menu-item" href=""
+                            data-i18n="nav.dash.ecommerce">{{__('dashboard.create_brand')}}</a>
+                    </li>
+                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">Crypto</a>
+                    </li>
+                    <li><a class="menu-item" href="" data-i18n="nav.dash.sales">Sales</a>
+                    </li>
+                </ul>
+            </li>
+>>>>>>> main
             @endcan
             @can('roles')
                 <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
@@ -81,7 +110,12 @@
                                 data-i18n="nav.templates.vert.main">{{__('dashboard.country')}}</a>
                         </li>
                         <li>
+<<<<<<< HEAD
                             <a class="menu-item" href="" data-i18n="nav.templates.horz.main">{{__('dashboard.cities')}}</a>
+=======
+                            <a class="menu-item" href=""
+                                data-i18n="nav.templates.horz.main">{{__('dashboard.cities')}}</a>
+>>>>>>> main
                         </li>
                     </ul>
                 </li>
