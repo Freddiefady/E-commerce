@@ -26,7 +26,7 @@ return [
     'email' => 'البريد الالكترونى',
     'password' => 'كلمة المرور',
     'password_confirmation' => 'تأكيد كلمة المرور',
-    'forgot_password' => 'نسيت كلمة المرور',
+    'forgot_password' => 'نسيت كلمة المرور؟',
     'reset_password' => 'عادة تعيين كلمة المرور',
     'send_reset_link' => 'ارسل رابط إعادة تعيين كلمة المرور',
     'logout' => 'تسجيل الخروج',

@@ -22,6 +22,16 @@
     <script src="https://cdn.datatables.net/2.2.1/js/dataTables.min.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/2.2.1/js/dataTables.bootstrap5.min.js" type="text/javascript"></script>
     <!-- responsive CDN -->
+    <script src="https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.3/js/responsive.bootstrap5.min.js" type="text/javascript"></script>
+    <!-- colReorder AND RowRecorder CDN -->
+    <script src="https://cdn.datatables.net/colreorder/2.0.4/js/dataTables.colReorder.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/colreorder/2.0.4/js/colReorder.bootstrap5.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/rowreorder/1.5.0/js/dataTables.rowReorder.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/rowreorder/1.5.0/js/rowReorder.bootstrap5.min.js" type="text/javascript"></script>
+    <!-- fixedHeader CDN -->
+    <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/dataTables.fixedHeader.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/fixedHeader.bootstrap5.min.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.min.js"
         type="text/javascript"></script>
     <script src="https://cdn.datatables.net/responsive/3.0.3/js/responsive.bootstrap5.min.js"
@@ -62,4 +72,73 @@
     <script src="{{asset('assets/dashboard/vendors/js/tables/jszip.min.js')}}" type="text/javascript"></script>
     <!-- Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        let title = "{{__('dashboard.title_swal')}}";
+        let text = "{{__('dashboard.text_swal')}}";
+        let confirmText = "{{__('dashboard.confirm_text_swal')}}";
+        let CancelText = "{{__('dashboard.Cancel_text_swal')}}";
+        let deletedTitle = "{{__('dashboard.deleted_title_swal')}}";
+        let deletedText = "{{__('dashboard.deleted_text_swal')}}";
+        let cancelledTitle = "{{__('dashboard.cancelled_text_swal')}}";
+        let cancelledText = "{{__('dashboard.cancel_text_swal')}}";
+        $(document).on('click', '.delete', function (e) {
+            e.preventDefault();
+            form = $(this).closest('form');
 
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: "btn btn-success",
+                    cancelButton: "btn btn-danger"
+                },
+                buttonsStyling: true
+            });
+            swalWithBootstrapButtons.fire({
+                title: title,
+                text: text,
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: confirmText,
+                cancelButtonText: cancelledText,
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                    swalWithBootstrapButtons.fire({
+                        title: deletedTitle,
+                        text: deletedText,
+                        icon: "success"
+                    });
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        title: cancelledTitle,
+                        text: cancelledText,
+                        icon: "error"
+                    });
+                }
+            });
+        });
+    </script>
+
+    <!-- fileinput -->
+    <script src="{{asset('vendor/fileinput/js/fileinput.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('vendor/fileinput/themes/fa5/theme.min.js')}}" type="text/javascript"></script>
+    @if (config('app.locale') == 'ar')
+    <script src="{{asset('vendor/fileinput/js/locales/LANG.js')}}" type="text/javascript"></script>
+    <script src="{{asset('vendor/fileinput/js/locales/ar.js')}}" type="text/javascript"></script>
+    @endif
+    <script>
+        var lang = "{{app()->getLocale()}}";
+    $(function() {
+            $('#singleImage').fileinput({
+                theme: 'fa5',
+                language: lang,
+                allowedFileTypes: ['image'],
+                maxFileCount: 1,
+                showUpload:false,
+            });
+        });
+    </script>
+>>>>>>> a08c8b532e3d82fd31507c5db4b056a90cbde999

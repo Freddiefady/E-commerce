@@ -8,7 +8,7 @@
     <meta name="author" content="PIXINVENT">
     <title>@yield('title') | {{ config('app.name') }}</title>
     <link rel="apple-touch-icon" href="{{asset('assets/dashboard')}}/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/dashboard')}}/images/ico/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset($settings->favicon)}}">
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700"
         rel="stylesheet">
@@ -77,3 +77,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/scroller/2.4.3/css/scroller.bootstrap5.min.css">
     <!-- Select CDN -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/3.0.0/css/select.bootstrap5.min.css">
+    <!-- Fileinput -->
+    <link rel="stylesheet" href="{{asset('vendor/fileinput/css/fileinput.min.css')}}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" crossorigin="anonymous">
+

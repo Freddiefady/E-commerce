@@ -10,8 +10,8 @@
                     <li class="nav-item mr-auto">
                         <a class="navbar-brand" href="index.html">
                             <img class="brand-logo" alt="modern admin logo"
-                                src="{{asset('assets/dashboard')}}/images/logo/logo.png">
-                            <h3 class="brand-text">Modern Admin</h3>
+                                src="{{asset($settings->logo)}}">
+                            <h3 class="brand-text">{{ $settings->site_name }}</h3>
                         </a>
                     </li>
                     <li class="nav-item d-none d-md-block float-right"><a class="nav-link modern-nav-toggle pr-0"
@@ -212,7 +212,7 @@
                         <li class="dropdown dropdown-user nav-item">
                             <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                                 <span class="mr-1">Hello,
-                                    <span class="user-name text-bold-700">John Doe</span>
+                                    <span class="user-name text-bold-700">{{Auth::user()->name}}</span>
                                 </span>
                                 <span class="avatar avatar-online">
                                     <img src="{{asset('assets/dashboard')}}/images/portrait/small/avatar-s-19.png"

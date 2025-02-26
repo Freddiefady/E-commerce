@@ -43,6 +43,7 @@
                     <div class="card-content">
                         <div class="card-body">
                             @include('components.alert-error')
+                            @include('components.validation-error')
                             <p class="card-text">As well as being able to pass language information to DataTables
                                 through the language initialization option, you can also store
                                 the language information in a file, which DataTables can load
@@ -86,8 +87,10 @@
                                         </div>
                                     </div>
                                     <div class="form-actions center">
-                                        <a href="{{url()->previous()}}" type="button" class="btn btn-warning mr-1"><i class="ft-x"></i> {{__('dashboard.cancel')}}</a>
-                                        <button type="submit" class="btn btn-primary mr-1"><i class="la la-check-square-o"></i> {{__('dashboard.save')}}</button>
+                                        <a href="{{url()->previous()}}" type="button" class="btn btn-warning mr-1"><i class="ft-x"></i> 
+                                        {{__('dashboard.cancel')}}</a>
+                                        <button type="submit" class="btn btn-primary mr-1"><i class="la la-check-square-o"></i> {{__('dashboard.save')}}
+                                    </button>
                                     </div>
                                 </div>
                             </form>
