@@ -27,13 +27,10 @@ class DatabaseSeeder extends Seeder
             GovernorateSeeder::class,
             CitySeeder::class,
             CategorySeeder::class,
-<<<<<<< HEAD
-=======
             BrandSeeder::class,
             CouponSeeder::class,
             FaqSeeder::class,
             BrandSeeder::class
->>>>>>> a08c8b532e3d82fd31507c5db4b056a90cbde999
         ]);
     }
 }

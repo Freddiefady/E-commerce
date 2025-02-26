@@ -2,19 +2,14 @@
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li class="nav-item"><a href=""><i class="la la-dashboard"></i><span class="menu-title"
-<<<<<<< HEAD
                         data-i18n="nav.dash.main">{{__('dashboard.dashboard')}}</span><span
                         class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
                 <ul class="menu-content">
                     <li class="active"><a class="menu-item" href=""
                             data-i18n="nav.dash.ecommerce">{{__('dashboard.')}}</a>
-=======
-                        data-i18n="nav.dash.main">{{ __('dashboard.dashboard') }}</span><span
-                        class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
                 <ul class="menu-content">
                     <li class="active"><a class="menu-item" href=""
                             data-i18n="nav.dash.ecommerce">{{ __('dashboard.') }}</a>
->>>>>>> a08c8b532e3d82fd31507c5db4b056a90cbde999
                     </li>
                     <li><a class="menu-item" href="dashboard-crypto.html" data-i18n="nav.dash.crypto">Crypto</a>
                     </li>
@@ -23,8 +18,6 @@
                 </ul>
             </li>
             @can('categories')
-<<<<<<< HEAD
-=======
                 <li class="nav-item"><a href=""><i class="la la-home"></i><span class="menu-title"
                             data-i18n="nav.dash.main">{{ __('dashboard.categories') }}</span><span
                             class="badge badge badge-info badge-pill float-right mr-2">{{ $categories_count }}</span></a>
@@ -51,7 +44,6 @@
                         </li>
                     </ul>
                 </li>
->>>>>>> a08c8b532e3d82fd31507c5db4b056a90cbde999
             <li class="nav-item"><a href=""><i class="la la-home"></i><span class="menu-title"
                         data-i18n="nav.dash.main">{{__('dashboard.categories')}}</span><span
                         class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
@@ -130,12 +122,9 @@
                         </li>
                         <li>
                             <a class="menu-item" href=""
-<<<<<<< HEAD
-=======
                                 data-i18n="nav.templates.horz.main">{{ __('dashboard.cities') }}</a>
                             <a class="menu-item" href="" data-i18n="nav.templates.horz.main">{{__('dashboard.cities')}}</a>
                             <a class="menu-item" href=""
->>>>>>> a08c8b532e3d82fd31507c5db4b056a90cbde999
                                 data-i18n="nav.templates.horz.main">{{__('dashboard.cities')}}</a>
                         </li>
                     </ul>
