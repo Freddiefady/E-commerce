@@ -61,7 +61,10 @@ Route::group(
                     Route::put('shipping-price', 'changeShippingPrice')->name('shipping.price');
                 });
             });
+
             //* categories
+
+            // Routes categories
             Route::group(['middleware' => 'can:categories', 'controller' => CategoryController::class], function () {
                 Route::resource('categories', CategoryController::class)->except('show');
                 Route::get('categories-all', 'getCategories')->name('categories.all');

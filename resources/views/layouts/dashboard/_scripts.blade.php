@@ -32,6 +32,24 @@
     <!-- fixedHeader CDN -->
     <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/dataTables.fixedHeader.min.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/fixedHeader.bootstrap5.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.min.js"
+        type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.3/js/responsive.bootstrap5.min.js"
+        type="text/javascript"></script>
+    <!-- colReorder AND RowRecorder CDN -->
+    <script src="https://cdn.datatables.net/colreorder/2.0.4/js/dataTables.colReorder.min.js"
+        type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/colreorder/2.0.4/js/colReorder.bootstrap5.min.js"
+        type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/rowreorder/1.5.0/js/dataTables.rowReorder.min.js"
+        type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/rowreorder/1.5.0/js/rowReorder.bootstrap5.min.js"
+        type="text/javascript"></script>
+    <!-- fixedHeader CDN -->
+    <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/dataTables.fixedHeader.min.js"
+        type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/fixedHeader.bootstrap5.min.js"
+        type="text/javascript"></script>
     <!-- Scroller CDN -->
     <script src="https://cdn.datatables.net/scroller/2.4.3/js/dataTables.scroller.min.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/scroller/2.4.3/js/scroller.bootstrap5.min.js" type="text/javascript"></script>
