@@ -81,7 +81,6 @@
 </div>
 @endsection
 @push('js')
-    // INFO: DatatableYajra
     <script>
         var lang = "{{app()->getLocale()}}";
         $('#DatatableYajra').DataTable({
@@ -130,7 +129,6 @@
             }
         });
     </script>
-    // INFO: script for swal
     <script>
 let title = "{{__('dashboard.title_swal')}}";
 let text = "{{__('dashboard.text_swal')}}";
