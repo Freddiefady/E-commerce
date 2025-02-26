@@ -19,7 +19,7 @@ class BrandController extends Controller
 
     public function getBrands()
     {
-        return $this->brandService->getBrandsForDataTales();
+        return $this->brandService->getBrandsForDataTables();
     }
     /**
      * Show the form for creating a new resource.
