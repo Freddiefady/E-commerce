@@ -50,7 +50,10 @@
                                     <tr>
                                         <th>#</th>
                                         <th>{{__('auth.name')}}</th>
+<<<<<<< HEAD
                                         <th>{{__('dashboard.products_count')}}</th>
+=======
+>>>>>>> main
                                         <th>{{__('dashboard.status')}}</th>
                                         <th>{{__('dashboard.created_at')}}</th>
                                         <th>{{__('dashboard.operations')}}</th>
@@ -62,7 +65,10 @@
                                 <tfoot>
                                     <th>#</th>
                                     <th>{{__('auth.name')}}</th>
+<<<<<<< HEAD
                                     <th>{{__('dashboard.products_count')}}</th>
+=======
+>>>>>>> main
                                     <th>{{__('dashboard.status')}}</th>
                                     <th>{{__('dashboard.created_at')}}</th>
                                     <th>{{__('dashboard.operations')}}</th>
@@ -110,7 +116,10 @@
             columns: [
                 { data: 'DT_RowIndex', name: 'DT_RowIndex', searchable: false, orderable: false },
                 { data: 'name', name: 'name' },
+<<<<<<< HEAD
                 { data: 'products_count', name: 'products_count' },
+=======
+>>>>>>> main
                 { data: 'status', name: 'status' },
                 { data: 'date', name: 'date' },
                 { data: 'action', searchable: false, orderable: false }
