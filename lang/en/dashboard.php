@@ -16,6 +16,7 @@ return [
     'faq' => 'FAQ',
     'faqs' => 'FAQs',
     'settings' => 'Settings',
+    'cities' => 'Cities',
     'create_faq' => 'Create FAQ',
     'create_category' => 'Create Category',
     'select_parent' => 'Select Parent',

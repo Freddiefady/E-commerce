@@ -44,7 +44,7 @@ Route::group(
         Route::group(['middleware' => 'auth:admin'], function () {
             Route::get('welcome', [WelcomeController::class, 'index'])->name('Welcome');
             Route::resource('roles', RoleController::class)->middleware('can:roles');
-            Route::resource('admins', AdminController::class)->middleware('can:admins');
+            Route::resource('admins', AdminController::class)->middleware('can:admins')->except('show');
             Route::get('admins/{id}/status', [AdminController::class, 'ChangeStatus'])->name('admins.status');
             ///TODO Worlds
             Route::group(['middleware' => 'can:global_shipping', 'controller' => WorldController::class], function () {

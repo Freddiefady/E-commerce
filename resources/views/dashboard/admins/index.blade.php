@@ -53,50 +53,51 @@
                                 </thead>
                                 <tbody>
                                     @forelse ($admins as $admin)
-                                        <tr>
-                                            <th scope="row">{{$loop->iteration}}</th>
-                                            <td>{{$admin->name}}</td>
-                                            <td>{{$admin->email}}</td>
-                                            <td>{{$admin->role->role}}</td>
-                                            <td>{{$admin->status()}}</td>
-                                            <td>{{$admin->created_at->format('Y-m-d')}}</td>
-                                            <td>
-                                                <div class="dropdown float-md-left">
-                                                    <button class="btn btn-danger dropdown-toggle round btn-glow px-2"
-                                                        id="dropdownBreadcrumbButton" type="button" data-toggle="dropdown"
-                                                        aria-haspopup="true"
-                                                        aria-expanded="false">{{__('dashboard.operations')}}</button>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownBreadcrumbButton">
-                                                        <a class="dropdown-item"
-                                                            href="{{route('dashboard.admins.edit', $admin->id)}}">
-                                                            <i class="la la-edit"></i>
-                                                            {{__('dashboard.edit')}}</a>
-                                                        <a class="dropdown-item"
-                                                            href="{{route('dashboard.admins.status', $admin->id)}}">
-                                                            <i
-                                                                class="la @if ($admin->status() == "Active") la-toggle-off @else la-toggle-on @endif "></i>
-                                                            @if ($admin->status() == "Active") {{__('dashboard.inactive')}}
-                                                            @else {{__('dashboard.active')}} @endif </a>
-                                                        <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item" href="javascript:void(0)"
-                                                            onclick="if(confirm('Do you want delete the post')){document.getElementById('delete-id-{{$admin->id}}').submit()} return false">
-                                                            <i class="la la-trash"></i>
-                                                            {{__('dashboard.delete')}}
-                                                        </a>
-                                                    </div>
+                                    <tr>
+                                        <th scope="row">{{$loop->iteration}}</th>
+                                        <td>{{$admin->name}}</td>
+                                        <td>{{$admin->email}}</td>
+                                        <td>{{$admin->role->role}}</td>
+                                        <td>{{$admin->status()}}</td>
+                                        <td>{{$admin->created_at->format('Y-m-d')}}</td>
+                                        <td>
+                                            <div class="dropdown float-md-left">
+                                                <button class="btn btn-danger dropdown-toggle round btn-glow px-2"
+                                                    id="dropdownBreadcrumbButton" type="button" data-toggle="dropdown"
+                                                    aria-haspopup="true"
+                                                    aria-expanded="false">{{__('dashboard.operations')}}</button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownBreadcrumbButton">
+                                                    <a class="dropdown-item"
+                                                        href="{{route('dashboard.admins.edit', $admin->id)}}">
+                                                        <i class="la la-edit"></i>
+                                                        {{__('dashboard.edit')}}</a>
+                                                    <a class="dropdown-item"
+                                                        href="{{route('dashboard.admins.status', $admin->id)}}">
+                                                        <i class="la @if ($admin->status() == "Active") la-toggle-off @else la-toggle-on @endif"></i>
+                                                        @if ($admin->status() == "Active") {{__('dashboard.inactive')}}
+                                                        @else {{__('dashboard.active')}} @endif </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="javascript:void(0)"
+                                                        onclick="if(confirm('Do you want delete the post'))
+                                                        {document.getElementById('delete-id-{{$admin->id}}').submit()} return false">
+                                                        <i class="la la-trash"></i>
+                                                        {{__('dashboard.delete')}}
+                                                    </a>
                                                 </div>
-                                            </td>
-                                        </tr>
-                                        <form action="{{route('dashboard.admins.destroy', $admin->id)}}" method="POST"
-                                            id="delete-id-{{$admin->id}}">
-                                            @csrf
-                                            @method('DELETE')
-                                        </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <form action="{{route('dashboard.admins.destroy', $admin->id)}}" method="POST"
+                                        id="delete-id-{{$admin->id}}">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
                                     @empty
-                                        <td colspan="4">{{__('dashboard.no_data')}}</td>
+                                    <td colspan="4">{{__('dashboard.no_data')}}</td>
                                     @endforelse
                                 </tbody>
                             </table>
+                            {{ $admins->links() }}
                         </div>
                     </div>
                 </div>

@@ -16,13 +16,7 @@ class AdminsRepository
     }
     public function createAdmin($request)
     {
-        return Admin::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' =>  $request->password,
-            'role_id' => $request->role_id,
-            'status' => $request->status
-        ]);
+        return Admin::create($request);
     }
     public function updateAdmin($data, $admin)
     {
