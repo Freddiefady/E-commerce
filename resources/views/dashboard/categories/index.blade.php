@@ -19,7 +19,7 @@
                     </div>
                 </div>
             </div>
-            <!-- @include('components.button-actions') -->
+            {{-- <x-button-actions></x-button-actions> --}}
         </div>
         <!-- Basic Tables start -->
         <div class="row">
@@ -39,8 +39,8 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            @include('components.tostar-success')
-                            @include('components.tostar-error')
+                            <x-tostar-success></x-tostar-success>
+                            <x-tostar-error></x-tostar-error>
                             <p class="card-text">As well as being able to pass language information to DataTables
                                 through the language initialization option, you can also store
                                 the language information in a file, which DataTables can load
@@ -131,7 +131,7 @@
 let title = "{{__('dashboard.title_swal')}}";
 let text = "{{__('dashboard.text_swal')}}";
 let confirmText = "{{__('dashboard.confirm_text_swal')}}";
-let CancelText = "{{__('dashboard.Cancel_text_swal')}}";
+let CancelText = "{{__('dashboard.cancel_text_swal')}}";
 let deletedTitle = "{{__('dashboard.deleted_title_swal')}}";
 let deletedText = "{{__('dashboard.deleted_text_swal')}}";
 let cancelledTitle = "{{__('dashboard.cancelled_title_swal')}}";

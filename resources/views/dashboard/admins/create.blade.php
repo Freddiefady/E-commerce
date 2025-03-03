@@ -48,19 +48,19 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="userinput1">{{__('dashboard.admin_name')}}</label>
-                                            <input type="text" id="userinput1" class="form-control border-primary" 
+                                            <input type="text" id="userinput1" class="form-control border-primary"
                                                 placeholder="{{__('dashboard.admin_name')}}" name="name">
-                                            @error('admin.en')
-                                                <strong class="text-danger">{{$message}}</strong>
+                                            @error('name')
+                                                <strong class="text-danger">{{ $message }}</strong>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="userinput2">{{__('dashboard.admin_email')}}</label>
-                                            <input type="text" id="userinput2" class="form-control border-primary" 
+                                            <input type="text" id="userinput2" class="form-control border-primary"
                                                 placeholder="{{__('dashboard.admin_email')}}" name="email">
-                                            @error('admin.ar')
+                                            @error('email')
                                                 <strong class="text-danger">{{$message}}</strong>
                                             @enderror
                                         </div>

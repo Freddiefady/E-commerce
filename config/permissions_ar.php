@@ -25,5 +25,6 @@ return [
     'comments' => 'إدارة التعليقات',
     'socials' => 'إدارة الشبكات الاجتماعية',
     'menus' => 'إدارة القوائم',
-    'global_shipping' => 'إدارة الشحن'
+    'global_shipping' => 'إدارة الشحن',
+    'attributes' => 'إدارة الصفات',
 ];

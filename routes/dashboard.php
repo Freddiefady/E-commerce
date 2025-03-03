@@ -1,19 +1,20 @@
 <?php
 
-use App\Http\Controllers\Dashboard\Admins\AdminController;
-use App\Http\Controllers\Dashboard\Auth\AuthController;
-use App\Http\Controllers\Dashboard\Auth\Password\ForgetPasswordController;
-use App\Http\Controllers\Dashboard\Auth\Password\ResetPasswordController;
-use App\Http\Controllers\Dashboard\Categories\CategoryController;
-use App\Http\Controllers\Dashboard\brands\BrandController;
-use App\Http\Controllers\Dashboard\Coupons\CouponController;
-use App\Http\Controllers\Dashboard\Faqs\FaqController;
-use App\Http\Controllers\Dashboard\Roles\RoleController;
-use App\Http\Controllers\Dashboard\Settings\SettingsController;
-use App\Http\Controllers\Dashboard\WelcomeController;
-use App\Http\Controllers\Dashboard\Worlds\WorldController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Dashboard\WelcomeController;
+use App\Http\Controllers\Dashboard\Faqs\FaqController;
+use App\Http\Controllers\Dashboard\Auth\AuthController;
+use App\Http\Controllers\Dashboard\Roles\RoleController;
+use App\Http\Controllers\Dashboard\Admins\AdminController;
+use App\Http\Controllers\Dashboard\brands\BrandController;
+use App\Http\Controllers\Dashboard\Worlds\WorldController;
+use App\Http\Controllers\Dashboard\Coupons\CouponController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Http\Controllers\Dashboard\Settings\SettingsController;
+use App\Http\Controllers\Dashboard\Categories\CategoryController;
+use App\Http\Controllers\Dashboard\Attributes\AttributesController;
+use App\Http\Controllers\Dashboard\Auth\Password\ResetPasswordController;
+use App\Http\Controllers\Dashboard\Auth\Password\ForgetPasswordController;
 
 Route::group(
     [
@@ -90,6 +91,11 @@ Route::group(
             Route::group(['prefix' => 'settings/', 'as' => 'settings.', 'middleware' => 'can:settings', 'controller' => SettingsController::class],function () {
                 Route::get('/','index')->name('index');
                 Route::put('{id}','update')->name('update');
+            });
+            //* * * * * * * * * * * * * * ATTRIBUTE VALUES
+            Route::group(['middleware' => 'can:attributes', 'controller' => AttributesController::class], function () {
+                Route::resource('attributes', AttributesController::class)->except('show');
+                Route::get('attributes-all', 'getAttributes')->name('attributes.all');
             });
         });
     });
