@@ -198,6 +198,7 @@ return [
         'role.en' => 'Role name with english',
         'name.ar' => 'Name with arabic',
         'name.en' => 'Name with english',
+        'value.*.ar' => 'Value with arabic',
+        'value.*.en' => 'Value with english',
     ],
-
 ];

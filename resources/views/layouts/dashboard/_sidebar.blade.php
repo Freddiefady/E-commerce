@@ -6,134 +6,144 @@
                         class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
                 <ul class="menu-content">
                     <li class="active"><a class="menu-item" href=""
-                            data-i18n="nav.dash.ecommerce">{{ __('dashboard.') }}</a>
+                            data-i18n="nav.dash.ecommerce">{{ __('dashboard.dashboard') }}</a>
+                        <ul class="menu-content">
+                            <li class="active"><a class="menu-item" href=""
+                                    data-i18n="nav.dash.ecommerce">{{ __('dashboard.dashboard') }}</a>
+                            </li>
+                            <li><a class="menu-item" href="dashboard-crypto.html" data-i18n="nav.dash.crypto">Crypto</a>
+                            </li>
+                            <li><a class="menu-item" href="dashboard-sales.html" data-i18n="nav.dash.sales">Sales</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li><a class="menu-item" href="dashboard-crypto.html" data-i18n="nav.dash.crypto">Crypto</a>
-                    </li>
-                    <li><a class="menu-item" href="dashboard-sales.html" data-i18n="nav.dash.sales">Sales</a>
+                    @can('categories')
+                        <li class="nav-item"><a href=""><i class="la la-folder"></i><span class="menu-title"
+                                    data-i18n="nav.dash.main">{{ __('dashboard.categories') }}</span><span
+                                    class="badge badge badge-info badge-pill float-right mr-2">{{ $categories_count }}
+                                </span></a>
+                            <ul class="menu-content">
+                                <li><a class="menu-item" href="{{ route('dashboard.categories.index') }}"
+                                        data-i18n="nav.dash.ecommerce">{{ __('dashboard.categories') }}</a>
+                                </li>
+                                <li><a class="menu-item" href="{{ route('dashboard.categories.create') }}"
+                                        data-i18n="nav.dash.crypto">{{ __('dashboard.create_category') }}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endcan
+                    @can('brands')
+                        <li class="nav-item"><a href=""><i class="la la-check-square"></i><span class="menu-title"
+                                    data-i18n="nav.dash.main">{{ __('dashboard.brands') }}</span><span
+                                    class="badge badge badge-info badge-pill float-right mr-2">{{ $brands_count }}</span></a>
+                            <ul class="menu-content">
+                                <li><a class="menu-item" href="{{ route('dashboard.brands.index') }}"
+                                        data-i18n="nav.dash.ecommerce">{{ __('dashboard.brands') }}</a>
+                                </li>
+                                <li><a class="menu-item" href="{{ route('dashboard.brands.create') }}"
+                                        data-i18n="nav.dash.crypto">{{ __('dashboard.create_brand') }}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endcan
+                    @can('roles')
+                        <li class=" nav-item"><a href="#"><i class="la la-unlock-alt"></i><span class="menu-title"
+                                    data-i18n="nav.templates.main">{{ __('dashboard.roles') }}</span></a>
+                            <ul class="menu-content">
+                                <li>
+                                    <a class="menu-item" href="{{ route('dashboard.roles.index') }}"
+                                        data-i18n="nav.templates.vert.main">{{ __('dashboard.role') }}</a>
+                                </li>
+                                <li>
+                                    <a class="menu-item" href="{{ route('dashboard.roles.create') }}"
+                                        data-i18n="nav.templates.horz.main">{{ __('dashboard.create_role') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endcan
+                    @can('coupons')
+                        <li class=" nav-item"><a href="#"><i class="la la-500px"></i><span class="menu-title"
+                                    data-i18n="nav.templates.main">{{ __('dashboard.coupons') }}</span></a>
+                            <ul class="menu-content">
+                                <li>
+                                    <a class="menu-item" href="{{ route('dashboard.coupons.index') }}"
+                                        data-i18n="nav.templates.vert.main">{{ __('dashboard.coupons') }}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endcan
+                    @can('admins')
+                        <li class=" nav-item"><a href="#"><i class="la la-user-secret"></i><span class="menu-title"
+                                    data-i18n="nav.templates.main">{{ __('dashboard.admins') }}</span></a>
+                            <ul class="menu-content">
+                                <li>
+                                    <a class="menu-item" href="{{ route('dashboard.admins.index') }}"
+                                        data-i18n="nav.templates.vert.main">{{ __('dashboard.admin') }}</a>
+                                </li>
+                                <li>
+                                    <a class="menu-item" href="{{ route('dashboard.admins.create') }}"
+                                        data-i18n="nav.templates.horz.main">{{ __('dashboard.create_admin') }}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endcan
+                    @can('global_shipping')
+                        <li class=" nav-item"><a href="#"><i class="la la-ambulance"></i><span class="menu-title"
+                                    data-i18n="nav.templates.main">{{ __('dashboard.shipping_management') }}</span></a>
+                            <ul class="menu-content">
+                                <li>
+                                    <a class="menu-item" href="{{ route('dashboard.countries.index') }}"
+                                        data-i18n="nav.templates.vert.main">{{ __('dashboard.country') }}</a>
+                                </li>
+                                <li>
+                                    <a class="menu-item" href=""
+                                        data-i18n="nav.templates.horz.main">{{ __('dashboard.cities') }}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endcan
+                    <li class=" nav-item"><a href="javascipt:void(0)"><i class="la la-cart-arrow-down"></i><span class="menu-title"
+                                data-i18n="nav.templates.main">{{ __('dashboard.products') }}</span></a>
+                        <ul class="menu-content">
+                            @can('attributes')
+                                <li>
+                                    <a class="menu-item" href="{{ route('dashboard.attributes.index') }}"
+                                        data-i18n="nav.templates.vert.main">{{ __('dashboard.attributes') }}</a>
+                                </li>
+                            @endcan
+                            @can('products')
+                                <li>
+                                    <a class="menu-item" href="{{ route('dashboard.attributes.index') }}"
+                                        data-i18n="nav.templates.vert.main">{{ __('dashboard.products') }}</a>
+                                </li>
+                                <li>
+                                    <a class="menu-item" href="{{ route('dashboard.attributes.index') }}"
+                                        data-i18n="nav.templates.vert.main">{{ __('dashboard.products_create') }}</a>
+                                </li>
+                            @endcan
                     </li>
                 </ul>
             </li>
-            @can('categories')
-                <li class="nav-item"><a href=""><i class="la la-home"></i><span class="menu-title"
-                            data-i18n="nav.dash.main">{{ __('dashboard.categories') }}</span><span
-                            class="badge badge badge-info badge-pill float-right mr-2">{{ $categories_count }}</span></a>
-                    <ul class="menu-content">
-                        <li><a class="menu-item" href="{{ route('dashboard.categories.index') }}"
-                                data-i18n="nav.dash.ecommerce">{{ __('dashboard.categories') }}</a>
-                        </li>
-                        <li><a class="menu-item" href="{{ route('dashboard.categories.create') }}"
-                                data-i18n="nav.dash.crypto">{{ __('dashboard.create_category') }}</a>
-                        </li>
-                    </ul>
-                </li>
-            @endcan
-            @can('brands')
-                <li class="nav-item"><a href=""><i class="la la-home"></i><span class="menu-title"
-                            data-i18n="nav.dash.main">{{ __('dashboard.brands') }}</span><span
-                            class="badge badge badge-info badge-pill float-right mr-2">{{ $brands_count }}</span></a>
-                    <ul class="menu-content">
-                        <li><a class="menu-item" href="{{ route('dashboard.brands.index') }}"
-                                data-i18n="nav.dash.ecommerce">{{ __('dashboard.brands') }}</a>
-                        </li>
-                        <li><a class="menu-item" href="{{ route('dashboard.brands.create') }}"
-                                data-i18n="nav.dash.crypto">{{ __('dashboard.create_brand') }}</a>
-                        </li>
-                    </ul>
-                </li>
-            <li class="nav-item"><a href=""><i class="la la-home"></i><span class="menu-title"
-                        data-i18n="nav.dash.main">{{__('dashboard.categories')}}</span><span
-                        class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
-                <ul class="menu-content">
-                    <li><a class="menu-item" href="{{route('dashboard.categories.index')}}"
-                            data-i18n="nav.dash.ecommerce">{{__('dashboard.categories')}}</a>
-                    </li>
-                    <li><a class="menu-item" href="{{route('dashboard.categories.create')}}" data-i18n="nav.dash.crypto">{{__('dashboard.create_category')}}</a>
-                    </li>
-                </ul>
-            </li>
-            @endcan
-            @can('brands')
-            <li class="nav-item"><a href=""><i class="la la-home"></i><span class="menu-title"
-                        data-i18n="nav.dash.main">{{__('dashboard.brands')}}</span><span
-                        class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
-                <ul class="menu-content">
-                    <li><a class="menu-item" href=""
-                            data-i18n="nav.dash.ecommerce">{{__('dashboard.create_brand')}}</a>
-                    </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">Crypto</a>
-                    </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.sales">Sales</a>
-                    </li>
-                </ul>
-            </li>
-            @endcan
-            @can('roles')
-                <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
-                            data-i18n="nav.templates.main">{{ __('dashboard.roles') }}</span></a>
-                    <ul class="menu-content">
-                        <li>
-                            <a class="menu-item" href="{{ route('dashboard.roles.index') }}"
-                                data-i18n="nav.templates.vert.main">{{ __('dashboard.role') }}</a>
-                        </li>
-                        <li>
-                            <a class="menu-item" href="{{ route('dashboard.roles.create') }}"
-                                data-i18n="nav.templates.horz.main">{{ __('dashboard.create_role') }}</a>
-                        </li>
-                    </ul>
-                </li>
-            @endcan
-            @can('coupons')
-                <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
-                            data-i18n="nav.templates.main">{{ __('dashboard.coupons') }}</span></a>
-                    <ul class="menu-content">
-                        <li>
-                            <a class="menu-item" href="{{ route('dashboard.coupons.index') }}"
-                                data-i18n="nav.templates.vert.main">{{ __('dashboard.coupons') }}</a>
-                        </li>
-                    </ul>
-                </li>
-            @endcan
-            @can('admins')
-                <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
-                            data-i18n="nav.templates.main">{{ __('dashboard.admins') }}</span></a>
-                    <ul class="menu-content">
-                        <li>
-                            <a class="menu-item" href="{{ route('dashboard.admins.index') }}"
-                                data-i18n="nav.templates.vert.main">{{ __('dashboard.admin') }}</a>
-                        </li>
-                        <li>
-                            <a class="menu-item" href="{{ route('dashboard.admins.create') }}"
-                                data-i18n="nav.templates.horz.main">{{ __('dashboard.create_admin') }}</a>
-                        </li>
-                    </ul>
-                </li>
-            @endcan
-            @can('global_shipping')
-                <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
-                            data-i18n="nav.templates.main">{{ __('dashboard.shipping_management') }}</span></a>
-                    <ul class="menu-content">
-                        <li>
-                            <a class="menu-item" href="{{ route('dashboard.countries.index') }}"
-                                data-i18n="nav.templates.vert.main">{{ __('dashboard.country') }}</a>
-                        </li>
-                        <li>
-                            <a class="menu-item" href=""
-                                data-i18n="nav.templates.horz.main">{{ __('dashboard.cities') }}</a>
-                            <a class="menu-item" href="" data-i18n="nav.templates.horz.main">{{__('dashboard.cities')}}</a>
-                            <a class="menu-item" href=""
-                                data-i18n="nav.templates.horz.main">{{__('dashboard.cities')}}</a>
-                        </li>
-                    </ul>
-                </li>
-            @endcan
+
 
             <li class=" navigation-header">
                 <span data-i18n="nav.category.layouts">Layouts</span><i class="la la-ellipsis-h ft-minus"
                     data-toggle="tooltip" data-placement="right" data-original-title="Layouts"></i>
             </li>
+            @can('settings')
+                <li class=" nav-item"><a href="#"><i class="la la-gears"></i><span class="menu-title"
+                            data-i18n="nav.templates.main">{{ __('dashboard.settings') }}</span></a>
+                    <ul class="menu-content">
+                        <li>
+                            <a class="menu-item" href="{{ route('dashboard.settings.index') }}"
+                                data-i18n="nav.templates.vert.main">{{ __('dashboard.settings') }}</a>
+                        </li>
+                    </ul>
+                </li>
+            @endcan
             @can('faqs')
-                <li class="nav-item"><a href=""><i class="la la-home"></i><span class="menu-title"
+                <li class="nav-item"><a href=""><i class="la la-info"></i><span class="menu-title"
                             data-i18n="nav.dash.main">
                             {{ __('dashboard.faq') }}</span><span
                             class="badge badge badge-info badge-pill float-right mr-2">{{ $faqs_count }}</span></a>
@@ -145,8 +155,8 @@
                 </li>
             @endcan
             <li class=" nav-item"><a href="#"><i class="la la-columns"></i><span class="menu-title"
-                        data-i18n="nav.page_layouts.main">Page layouts</span><span
-                        class="badge badge badge-pill badge-danger float-right mr-2">New</span></a>
+                        data-i18n="nav.page_layouts.main">Page
+                        layouts</span><span class="badge badge badge-pill badge-danger float-right mr-2">New</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="layout-1-column.html" data-i18n="nav.page_layouts.1_column">1
                             column</a>
@@ -163,8 +173,7 @@
                             </li>
                             <li><a class="menu-item" href="layout-content-left-sticky-sidebar.html"
                                     data-i18n="nav.page_layouts.3_columns.left_sticky_sidebar">Left
-                                    sticky
-                                    sidebar</a>
+                                    sticky sidebar</a>
                             </li>
                             <li><a class="menu-item" href="layout-content-right-sidebar.html"
                                     data-i18n="nav.page_layouts.3_columns.right_sidebar">Right
@@ -172,12 +181,12 @@
                             </li>
                             <li><a class="menu-item" href="layout-content-right-sticky-sidebar.html"
                                     data-i18n="nav.page_layouts.3_columns.right_sticky_sidebar">Right
-                                    sticky
-                                    sidebar</a>
+                                    sticky sidebar</a>
                             </li>
                         </ul>
                     </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.page_layouts.3_columns_detached.main">Content
+                    <li><a class="menu-item" href="#"
+                            data-i18n="nav.page_layouts.3_columns_detached.main">Content
                             Det. Sidebar</a>
                         <ul class="menu-content">
                             <li><a class="menu-item" href="layout-content-detached-left-sidebar.html"
@@ -200,7 +209,8 @@
                     </li>
                     <li class="navigation-divider"></li>
                     <li><a class="menu-item" href="layout-fixed-navbar.html"
-                            data-i18n="nav.page_layouts.fixed_navbar">Fixed navbar</a>
+                            data-i18n="nav.page_layouts.fixed_navbar">Fixed
+                            navbar</a>
                     </li>
                     <li><a class="menu-item" href="layout-fixed-navigation.html"
                             data-i18n="nav.page_layouts.fixed_navigation">Fixed
@@ -211,7 +221,8 @@
                             navbar &amp; navigation</a>
                     </li>
                     <li><a class="menu-item" href="layout-fixed-navbar-footer.html"
-                            data-i18n="nav.page_layouts.fixed_navbar_footer">Fixed navbar
+                            data-i18n="nav.page_layouts.fixed_navbar_footer">Fixed
+                            navbar
                             &amp; footer</a>
                     </li>
                     <li class="navigation-divider"></li>
@@ -221,7 +232,8 @@
                     <li><a class="menu-item" href="layout-boxed.html" data-i18n="nav.page_layouts.boxed_layout">Boxed
                             layout</a>
                     </li>
-                    <li><a class="menu-item" href="layout-static.html" data-i18n="nav.page_layouts.static_layout">Static
+                    <li><a class="menu-item" href="layout-static.html"
+                            data-i18n="nav.page_layouts.static_layout">Static
                             layout</a>
                     </li>
                     <li class="navigation-divider"></li>
@@ -232,7 +244,8 @@
                             layout</a>
                     </li>
                     <li><a class="menu-item" href="layout-semi-dark.html"
-                            data-i18n="nav.page_layouts.semi_dark_layout">Semi dark
+                            data-i18n="nav.page_layouts.semi_dark_layout">Semi
+                            dark
                             layout</a>
                     </li>
                 </ul>
@@ -250,12 +263,14 @@
                             Semi Dark</a>
                     </li>
                     <li><a class="menu-item" href="navbar-brand-center.html"
-                            data-i18n="nav.navbars.nav_brand_center">Brand Center</a>
+                            data-i18n="nav.navbars.nav_brand_center">Brand
+                            Center</a>
                     </li>
                     <li><a class="menu-item" href="navbar-fixed-top.html" data-i18n="nav.navbars.nav_fixed_top">Fixed
                             Top</a>
                     </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.navbars.nav_hide_on_scroll.main">Hide on
+                    <li><a class="menu-item" href="#" data-i18n="nav.navbars.nav_hide_on_scroll.main">Hide
+                            on
                             Scroll</a>
                         <ul class="menu-content">
                             <li><a class="menu-item" href="navbar-hide-on-scroll-top.html"
@@ -270,7 +285,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a class="menu-item" href="navbar-components.html" data-i18n="nav.navbars.nav_components">Navbar
+                    <li><a class="menu-item" href="navbar-components.html"
+                            data-i18n="nav.navbars.nav_components">Navbar
                             Components</a>
                     </li>
                     <li><a class="menu-item" href="navbar-styling.html" data-i18n="nav.navbars.nav_styling">Navbar
@@ -279,7 +295,8 @@
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-arrows-v"></i><span class="menu-title"
-                        data-i18n="nav.vertical_nav.main">Vertical Nav</span></a>
+                        data-i18n="nav.vertical_nav.main">Vertical
+                        Nav</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="#"
                             data-i18n="nav.vertical_nav.vertical_navigation_types.main">Navigation
@@ -356,7 +373,8 @@
                             Styling</a>
                     </li>
                     <li><a class="menu-item" href="vertical-nav-tags-pills.html"
-                            data-i18n="nav.vertical_nav.vertical_nav_tags_pills">Tags &amp;
+                            data-i18n="nav.vertical_nav.vertical_nav_tags_pills">Tags
+                            &amp;
                             Pills</a>
                     </li>
                 </ul>
@@ -381,7 +399,8 @@
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-header"></i><span class="menu-title"
-                        data-i18n="nav.page_headers.main">Page Headers</span></a>
+                        data-i18n="nav.page_headers.main">Page
+                        Headers</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="headers-breadcrumbs-basic.html"
                             data-i18n="nav.page_headers.headers_breadcrumbs_basic">Breadcrumbs
@@ -446,7 +465,8 @@
                             Fixed</a>
                     </li>
                     <li><a class="menu-item" href="footer-components.html"
-                            data-i18n="nav.footers.footer_components">Footer Components</a>
+                            data-i18n="nav.footers.footer_components">Footer
+                            Components</a>
                     </li>
                 </ul>
             </li>
@@ -455,7 +475,8 @@
                     data-toggle="tooltip" data-placement="right" data-original-title="General"></i>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-paint-brush"></i><span class="menu-title"
-                        data-i18n="nav.color_palette.main">Color Palette</span></a>
+                        data-i18n="nav.color_palette.main">Color
+                        Palette</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="color-palette-primary.html"
                             data-i18n="nav.color_palette.color_palette_primary">Primary
@@ -479,7 +500,8 @@
                     </li>
                     <li class="navigation-divider"></li>
                     <li><a class="menu-item" href="color-palette-red.html"
-                            data-i18n="nav.color_palette.color_palette_red">Red palette</a>
+                            data-i18n="nav.color_palette.color_palette_red">Red
+                            palette</a>
                     </li>
                     <li><a class="menu-item" href="color-palette-pink.html"
                             data-i18n="nav.color_palette.color_palette_pink">Pink
@@ -510,7 +532,8 @@
                             palette</a>
                     </li>
                     <li><a class="menu-item" href="color-palette-blue-grey.html"
-                            data-i18n="nav.color_palette.color_palette_blue_grey">Blue Grey
+                            data-i18n="nav.color_palette.color_palette_blue_grey">Blue
+                            Grey
                             palette</a>
                     </li>
                 </ul>
@@ -520,13 +543,16 @@
                 <ul class="menu-content">
                     <li><a class="menu-item"
                             href="{{ asset('assets/dashboard') }}//rtl/vertical-modern-menu-template/layout-1-column.html"
-                            data-i18n="nav.starter_kit.1_column">1 column</a>
+                            data-i18n="nav.starter_kit.1_column">1
+                            column</a>
                     </li>
                     <li><a class="menu-item"
                             href="{{ asset('assets/dashboard') }}//rtl/vertical-modern-menu-template/layout-2-columns.html"
-                            data-i18n="nav.starter_kit.2_columns">2 columns</a>
+                            data-i18n="nav.starter_kit.2_columns">2
+                            columns</a>
                     </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.starter_kit.3_columns_detached.main">Content
+                    <li><a class="menu-item" href="#"
+                            data-i18n="nav.starter_kit.3_columns_detached.main">Content
                             Det. Sidebar</a>
                         <ul class="menu-content">
                             <li><a class="menu-item"
@@ -554,7 +580,8 @@
                     <li class="navigation-divider"></li>
                     <li><a class="menu-item"
                             href="{{ asset('assets/dashboard') }}//rtl/vertical-modern-menu-template/layout-fixed-navbar.html"
-                            data-i18n="nav.starter_kit.fixed_navbar">Fixed navbar</a>
+                            data-i18n="nav.starter_kit.fixed_navbar">Fixed
+                            navbar</a>
                     </li>
                     <li><a class="menu-item"
                             href="{{ asset('assets/dashboard') }}//rtl/vertical-modern-menu-template/layout-fixed-navigation.html"
@@ -563,39 +590,47 @@
                     </li>
                     <li><a class="menu-item"
                             href="{{ asset('assets/dashboard') }}//rtl/vertical-modern-menu-template/layout-fixed-navbar-navigation.html"
-                            data-i18n="nav.starter_kit.fixed_navbar_navigation">Fixed navbar
+                            data-i18n="nav.starter_kit.fixed_navbar_navigation">Fixed
+                            navbar
                             &amp; navigation</a>
                     </li>
                     <li><a class="menu-item"
                             href="{{ asset('assets/dashboard') }}//rtl/vertical-modern-menu-template/layout-fixed-navbar-footer.html"
-                            data-i18n="nav.starter_kit.fixed_navbar_footer">Fixed navbar
+                            data-i18n="nav.starter_kit.fixed_navbar_footer">Fixed
+                            navbar
                             &amp; footer</a>
                     </li>
                     <li class="navigation-divider"></li>
                     <li><a class="menu-item"
                             href="{{ asset('assets/dashboard') }}//rtl/vertical-modern-menu-template/layout-fixed.html"
-                            data-i18n="nav.starter_kit.fixed_layout">Fixed layout</a>
+                            data-i18n="nav.starter_kit.fixed_layout">Fixed
+                            layout</a>
                     </li>
                     <li><a class="menu-item"
                             href="{{ asset('assets/dashboard') }}//rtl/vertical-modern-menu-template/layout-boxed.html"
-                            data-i18n="nav.starter_kit.boxed_layout">Boxed layout</a>
+                            data-i18n="nav.starter_kit.boxed_layout">Boxed
+                            layout</a>
                     </li>
                     <li><a class="menu-item"
                             href="{{ asset('assets/dashboard') }}//rtl/vertical-modern-menu-template/layout-static.html"
-                            data-i18n="nav.starter_kit.static_layout">Static layout</a>
+                            data-i18n="nav.starter_kit.static_layout">Static
+                            layout</a>
                     </li>
                     <li class="navigation-divider"></li>
                     <li><a class="menu-item"
                             href="{{ asset('assets/dashboard') }}//rtl/vertical-modern-menu-template/layout-light.html"
-                            data-i18n="nav.starter_kit.light_layout">Light layout</a>
+                            data-i18n="nav.starter_kit.light_layout">Light
+                            layout</a>
                     </li>
                     <li><a class="menu-item"
                             href="{{ asset('assets/dashboard') }}//rtl/vertical-modern-menu-template/layout-dark.html"
-                            data-i18n="nav.starter_kit.dark_layout">Dark layout</a>
+                            data-i18n="nav.starter_kit.dark_layout">Dark
+                            layout</a>
                     </li>
                     <li><a class="menu-item"
                             href="{{ asset('assets/dashboard') }}//rtl/vertical-modern-menu-template/layout-semi-dark.html"
-                            data-i18n="nav.starter_kit.semi_dark_layout">Semi dark
+                            data-i18n="nav.starter_kit.semi_dark_layout">Semi
+                            dark
                             layout</a>
                     </li>
                 </ul>
@@ -609,11 +644,14 @@
                         Menu</span></a>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-android"></i><span class="menu-title"
-                        data-i18n="nav.menu_levels.main">Menu levels</span></a>
+                        data-i18n="nav.menu_levels.main">Menu
+                        levels</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="#" data-i18n="nav.menu_levels.second_level">Second level</a>
+                    <li><a class="menu-item" href="#" data-i18n="nav.menu_levels.second_level">Second
+                            level</a>
                     </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.menu_levels.second_level_child.main">Second
+                    <li><a class="menu-item" href="#"
+                            data-i18n="nav.menu_levels.second_level_child.main">Second
                             level child</a>
                         <ul class="menu-content">
                             <li><a class="menu-item" href="#"
@@ -645,13 +683,14 @@
             <li class=" nav-item"><a href="email-application.html"><i class="la la-envelope"></i><span
                         class="menu-title" data-i18n="">Email Application</span></a>
             </li>
-            <li class=" nav-item"><a href="chat-application.html"><i class="la la-comments"></i><span class="menu-title"
-                        data-i18n="">Chat Application</span></a>
+            <li class=" nav-item"><a href="chat-application.html"><i class="la la-comments"></i><span
+                        class="menu-title" data-i18n="">Chat Application</span></a>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-briefcase"></i><span class="menu-title"
                         data-i18n="nav.project.main">Project</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="project-summary.html" data-i18n="nav.project.project_summary">Project
+                    <li><a class="menu-item" href="project-summary.html"
+                            data-i18n="nav.project.project_summary">Project
                             Summary</a>
                     </li>
                     <li><a class="menu-item" href="project-tasks.html" data-i18n="nav.project.project_tasks">Project
@@ -662,18 +701,20 @@
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="scrumboard.html"><i class="la la-check-square"></i><span class="menu-title"
-                        data-i18n="nav.scrumboard.main">Scrumboard</span><span
+            <li class=" nav-item"><a href="scrumboard.html"><i class="la la-check-square"></i><span
+                        class="menu-title" data-i18n="nav.scrumboard.main">Scrumboard</span><span
                         class="badge badge badge-info float-right">Update</span></a>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-clipboard"></i><span class="menu-title"
                         data-i18n="nav.invoice.main">Invoice</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="invoice-summary.html" data-i18n="nav.invoice.invoice_summary">Invoice
+                    <li><a class="menu-item" href="invoice-summary.html"
+                            data-i18n="nav.invoice.invoice_summary">Invoice
                             Summary</a>
                     </li>
                     <li><a class="menu-item" href="invoice-template.html"
-                            data-i18n="nav.invoice.invoice_template">Invoice Template</a>
+                            data-i18n="nav.invoice.invoice_template">Invoice
+                            Template</a>
                     </li>
                     <li><a class="menu-item" href="invoice-list.html" data-i18n="nav.invoice.invoice_list">Invoice
                             List</a>
@@ -684,13 +725,16 @@
                         data-i18n="nav.timelines.main">Timelines</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="timeline-center.html"
-                            data-i18n="nav.timelines.timeline_center">Timelines Center</a>
+                            data-i18n="nav.timelines.timeline_center">Timelines
+                            Center</a>
                     </li>
-                    <li><a class="menu-item" href="timeline-left.html" data-i18n="nav.timelines.timeline_left">Timelines
+                    <li><a class="menu-item" href="timeline-left.html"
+                            data-i18n="nav.timelines.timeline_left">Timelines
                             Left</a>
                     </li>
                     <li><a class="menu-item" href="timeline-right.html"
-                            data-i18n="nav.timelines.timeline_right">Timelines Right</a>
+                            data-i18n="nav.timelines.timeline_right">Timelines
+                            Right</a>
                     </li>
                     <li><a class="menu-item" href="timeline-horizontal.html"
                             data-i18n="nav.timelines.timeline_horizontal">Timelines
@@ -704,7 +748,8 @@
                     <li><a class="menu-item" href="user-profile.html" data-i18n="nav.users.user_profile">Users
                             Profile</a>
                     </li>
-                    <li><a class="menu-item" href="user-cards.html" data-i18n="nav.users.user_cards">Users Cards</a>
+                    <li><a class="menu-item" href="user-cards.html" data-i18n="nav.users.user_cards">Users
+                            Cards</a>
                     </li>
                     <li><a class="menu-item" href="users-contacts.html" data-i18n="nav.users.users_contacts">Users
                             List</a>
@@ -714,7 +759,8 @@
             <li class=" nav-item"><a href="#"><i class="la la-image"></i><span class="menu-title"
                         data-i18n="nav.gallery_pages.main">Gallery</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="gallery-grid.html" data-i18n="nav.gallery_pages.gallery_grid">Gallery
+                    <li><a class="menu-item" href="gallery-grid.html"
+                            data-i18n="nav.gallery_pages.gallery_grid">Gallery
                             Grid</a>
                     </li>
                     <li><a class="menu-item" href="gallery-grid-with-desc.html"
@@ -742,12 +788,15 @@
                             Page</a>
                     </li>
                     <li><a class="menu-item" href="search-website.html"
-                            data-i18n="nav.search_pages.search_website">Search Website</a>
+                            data-i18n="nav.search_pages.search_website">Search
+                            Website</a>
                     </li>
-                    <li><a class="menu-item" href="search-images.html" data-i18n="nav.search_pages.search_images">Search
+                    <li><a class="menu-item" href="search-images.html"
+                            data-i18n="nav.search_pages.search_images">Search
                             Images</a>
                     </li>
-                    <li><a class="menu-item" href="search-videos.html" data-i18n="nav.search_pages.search_videos">Search
+                    <li><a class="menu-item" href="search-videos.html"
+                            data-i18n="nav.search_pages.search_videos">Search
                             Videos</a>
                     </li>
                 </ul>
@@ -760,7 +809,8 @@
                             Simple</a>
                     </li>
                     <li><a class="menu-item" href="login-with-bg.html"
-                            data-i18n="nav.login_register_pages.login_with_bg">Login with
+                            data-i18n="nav.login_register_pages.login_with_bg">Login
+                            with
                             Bg</a>
                     </li>
                     <li><a class="menu-item" href="login-with-bg-image.html"
@@ -796,7 +846,8 @@
                             Advanced</a>
                     </li>
                     <li><a class="menu-item" href="unlock-user.html"
-                            data-i18n="nav.login_register_pages.unlock_user">Unlock User</a>
+                            data-i18n="nav.login_register_pages.unlock_user">Unlock
+                            User</a>
                     </li>
                     <li><a class="menu-item" href="recover-password.html"
                             data-i18n="nav.login_register_pages.recover_password">recover-password</a>
@@ -810,35 +861,40 @@
                             400</a>
                     </li>
                     <li><a class="menu-item" href="error-400-with-navbar.html"
-                            data-i18n="nav.error_pages.error_400_with_navbar">Error 400 with
+                            data-i18n="nav.error_pages.error_400_with_navbar">Error
+                            400 with
                             Navbar</a>
                     </li>
                     <li><a class="menu-item" href="error-401.html" data-i18n="nav.error_pages.error_401">Error
                             401</a>
                     </li>
                     <li><a class="menu-item" href="error-401-with-navbar.html"
-                            data-i18n="nav.error_pages.error_401_with_navbar">Error 401 with
+                            data-i18n="nav.error_pages.error_401_with_navbar">Error
+                            401 with
                             Navbar</a>
                     </li>
                     <li><a class="menu-item" href="error-403.html" data-i18n="nav.error_pages.error_403">Error
                             403</a>
                     </li>
                     <li><a class="menu-item" href="error-403-with-navbar.html"
-                            data-i18n="nav.error_pages.error_403_with_navbar">Error 403 with
+                            data-i18n="nav.error_pages.error_403_with_navbar">Error
+                            403 with
                             Navbar</a>
                     </li>
                     <li><a class="menu-item" href="error-404.html" data-i18n="nav.error_pages.error_404">Error
                             404</a>
                     </li>
                     <li><a class="menu-item" href="error-404-with-navbar.html"
-                            data-i18n="nav.error_pages.error_404_with_navbar">Error 404 with
+                            data-i18n="nav.error_pages.error_404_with_navbar">Error
+                            404 with
                             Navbar</a>
                     </li>
                     <li><a class="menu-item" href="error-500.html" data-i18n="nav.error_pages.error_500">Error
                             500</a>
                     </li>
                     <li><a class="menu-item" href="error-500-with-navbar.html"
-                            data-i18n="nav.error_pages.error_500_with_navbar">Error 500 with
+                            data-i18n="nav.error_pages.error_500_with_navbar">Error
+                            500 with
                             Navbar</a>
                     </li>
                 </ul>
@@ -846,7 +902,8 @@
             <li class=" nav-item"><a href="#"><i class="la la-file-text"></i><span class="menu-title"
                         data-i18n="nav.other_pages.main">Others</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="#" data-i18n="nav.other_pages.coming_soon.main">Coming Soon</a>
+                    <li><a class="menu-item" href="#" data-i18n="nav.other_pages.coming_soon.main">Coming
+                            Soon</a>
                         <ul class="menu-content">
                             <li><a class="menu-item" href="coming-soon-flat.html"
                                     data-i18n="nav.other_pages.coming_soon.coming_soon_flat">Flat</a>
@@ -877,7 +934,8 @@
                     <li><a class="menu-item" href="card-bootstrap.html"
                             data-i18n="nav.cards.card_bootstrap">Bootstrap</a>
                     </li>
-                    <li><a class="menu-item" href="card-headings.html" data-i18n="nav.cards.card_headings">Headings</a>
+                    <li><a class="menu-item" href="card-headings.html"
+                            data-i18n="nav.cards.card_headings">Headings</a>
                     </li>
                     <li><a class="menu-item" href="card-options.html" data-i18n="nav.cards.card_options">Options</a>
                     </li>
@@ -889,7 +947,8 @@
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-fire"></i><span class="menu-title"
-                        data-i18n="nav.advance_cards.main">Advance Cards</span></a>
+                        data-i18n="nav.advance_cards.main">Advance
+                        Cards</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="card-statistics.html"
                             data-i18n="nav.cards.card_statistics">Statistics</a>
@@ -941,7 +1000,8 @@
                     <li><a class="menu-item" href="component-callout.html"
                             data-i18n="nav.components.component_callout">Callout</a>
                     </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.components.components_buttons.main">Buttons</a>
+                    <li><a class="menu-item" href="#"
+                            data-i18n="nav.components.components_buttons.main">Buttons</a>
                         <ul class="menu-content">
                             <li><a class="menu-item" href="component-buttons-basic.html"
                                     data-i18n="nav.components.components_buttons.component_buttons_basic">Basic
@@ -963,7 +1023,8 @@
                             data-i18n="nav.components.component_dropdowns">Dropdowns</a>
                     </li>
                     <li><a class="menu-item" href="component-list-group.html"
-                            data-i18n="nav.components.component_list_group">List Group</a>
+                            data-i18n="nav.components.component_list_group">List
+                            Group</a>
                     </li>
                     <li><a class="menu-item" href="component-modals.html"
                             data-i18n="nav.components.component_modals">Modals</a>
@@ -992,7 +1053,8 @@
                     <li><a class="menu-item" href="component-badges.html"
                             data-i18n="nav.components.component_badges">Badges</a>
                     </li>
-                    <li><a class="menu-item" href="component-pill-badges.html">Pill Badges</a>
+                    <li><a class="menu-item" href="component-pill-badges.html">Pill
+                            Badges</a>
                     </li>
                     <li><a class="menu-item" href="component-progress.html"
                             data-i18n="nav.components.component_progress">Progress</a>
@@ -1010,7 +1072,8 @@
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-diamond"></i><span class="menu-title"
-                        data-i18n="nav.extra_components.main">Extra Components</span></a>
+                        data-i18n="nav.extra_components.main">Extra
+                        Components</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="ex-component-sweet-alerts.html"
                             data-i18n="nav.extra_components.ex_component_sweet_alerts">Sweet
@@ -1058,37 +1121,43 @@
             <li class=" nav-item"><a href="#"><i class="la la-eye"></i><span class="menu-title"
                         data-i18n="nav.icons.main">Icons</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="icons-feather.html" data-i18n="nav.icons.icons_feather">Feather</a>
+                    <li><a class="menu-item" href="icons-feather.html"
+                            data-i18n="nav.icons.icons_feather">Feather</a>
                     </li>
                     <li><a class="menu-item" href="icons-line-awesome.html"
-                            data-i18n="nav.icons.icons_line_awesome">Line Awesome</a>
+                            data-i18n="nav.icons.icons_line_awesome">Line
+                            Awesome</a>
                     </li>
                     <li><a class="menu-item" href="icons-meteocons.html"
                             data-i18n="nav.icons.icons_meteocons">Meteocons</a>
                     </li>
                     <li><a class="menu-item" href="icons-simple-line-icons.html"
-                            data-i18n="nav.icons.icons_linecons">Simple Line Icons</a>
+                            data-i18n="nav.icons.icons_linecons">Simple Line
+                            Icons</a>
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="animation.html"><i class="la la-spinner spinner"></i><span class="menu-title"
-                        data-i18n="nav.animation.main">Animation</span></a>
+            <li class=" nav-item"><a href="animation.html"><i class="la la-spinner spinner"></i><span
+                        class="menu-title" data-i18n="nav.animation.main">Animation</span></a>
             </li>
             <li class=" navigation-header">
                 <span data-i18n="nav.category.forms">Forms</span><i class="la la-ellipsis-h ft-minus"
                     data-toggle="tooltip" data-placement="right" data-original-title="Forms"></i>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-terminal"></i><span class="menu-title"
-                        data-i18n="nav.form_elements.main">Form Elements</span></a>
+                        data-i18n="nav.form_elements.main">Form
+                        Elements</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="form-inputs.html" data-i18n="nav.form_elements.form_inputs">Form
                             Inputs</a>
                     </li>
                     <li><a class="menu-item" href="form-input-groups.html"
-                            data-i18n="nav.form_elements.form_input_groups">Input Groups</a>
+                            data-i18n="nav.form_elements.form_input_groups">Input
+                            Groups</a>
                     </li>
                     <li><a class="menu-item" href="form-input-grid.html"
-                            data-i18n="nav.form_elements.form_input_grid">Input Grid</a>
+                            data-i18n="nav.form_elements.form_input_grid">Input
+                            Grid</a>
                     </li>
                     <li><a class="menu-item" href="form-extended-inputs.html"
                             data-i18n="nav.form_elements.form_extended_inputs">Extended
@@ -1101,7 +1170,8 @@
                     <li><a class="menu-item" href="form-switch.html"
                             data-i18n="nav.form_elements.form_switch">Switch</a>
                     </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.form_elements.form_select.main">Select</a>
+                    <li><a class="menu-item" href="#"
+                            data-i18n="nav.form_elements.form_select.main">Select</a>
                         <ul class="menu-content">
                             <li><a class="menu-item" href="form-select2.html"
                                     data-i18n="nav.form_elements.form_select.form_select2">Select2</a>
@@ -1119,10 +1189,12 @@
                         </ul>
                     </li>
                     <li><a class="menu-item" href="form-dual-listbox.html"
-                            data-i18n="nav.form_elements.form_dual_listbox">Dual Listbox</a>
+                            data-i18n="nav.form_elements.form_dual_listbox">Dual
+                            Listbox</a>
                     </li>
                     <li><a class="menu-item" href="form-tags-input.html"
-                            data-i18n="nav.form_elements.form_tags_input">Tags Input</a>
+                            data-i18n="nav.form_elements.form_tags_input">Tags
+                            Input</a>
                     </li>
                     <li><a class="menu-item" href="form-validation.html"
                             data-i18n="nav.form_elements.form_validation">Validation</a>
@@ -1130,10 +1202,12 @@
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-file-text"></i><span class="menu-title"
-                        data-i18n="nav.form_layouts.main">Form Layouts</span></a>
+                        data-i18n="nav.form_layouts.main">Form
+                        Layouts</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="form-layout-basic.html"
-                            data-i18n="nav.form_layouts.form_layout_basic">Basic Forms</a>
+                            data-i18n="nav.form_layouts.form_layout_basic">Basic
+                            Forms</a>
                     </li>
                     <li><a class="menu-item" href="form-layout-horizontal.html"
                             data-i18n="nav.form_layouts.form_layout_horizontal">Horizontal
@@ -1165,7 +1239,8 @@
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-paste"></i><span class="menu-title"
-                        data-i18n="nav.form_wizard.main">Form Wizard</span></a>
+                        data-i18n="nav.form_wizard.main">Form
+                        Wizard</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="form-wizard-circle-style.html"
                             data-i18n="nav.form_wizard.form_wizard_circle_style">Circle
@@ -1177,8 +1252,8 @@
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="form-repeater.html"><i class="la la-repeat"></i><span class="menu-title"
-                        data-i18n="nav.form_repeater.main">Form
+            <li class=" nav-item"><a href="form-repeater.html"><i class="la la-repeat"></i><span
+                        class="menu-title" data-i18n="nav.form_repeater.main">Form
                         Repeater</span></a>
             </li>
             <li class=" navigation-header">
@@ -1186,19 +1261,24 @@
                     data-toggle="tooltip" data-placement="right" data-original-title="Tables"></i>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-table"></i><span class="menu-title"
-                        data-i18n="nav.bootstrap_tables.main">Bootstrap Tables</span></a>
+                        data-i18n="nav.bootstrap_tables.main">Bootstrap
+                        Tables</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="table-basic.html" data-i18n="nav.bootstrap_tables.table_basic">Basic
+                    <li><a class="menu-item" href="table-basic.html"
+                            data-i18n="nav.bootstrap_tables.table_basic">Basic
                             Tables</a>
                     </li>
                     <li><a class="menu-item" href="table-border.html"
-                            data-i18n="nav.bootstrap_tables.table_border">Table Border</a>
+                            data-i18n="nav.bootstrap_tables.table_border">Table
+                            Border</a>
                     </li>
                     <li><a class="menu-item" href="table-sizing.html"
-                            data-i18n="nav.bootstrap_tables.table_sizing">Table Sizing</a>
+                            data-i18n="nav.bootstrap_tables.table_sizing">Table
+                            Sizing</a>
                     </li>
                     <li><a class="menu-item" href="table-styling.html"
-                            data-i18n="nav.bootstrap_tables.table_styling">Table Styling</a>
+                            data-i18n="nav.bootstrap_tables.table_styling">Table
+                            Styling</a>
                     </li>
                     <li><a class="menu-item" href="table-components.html"
                             data-i18n="nav.bootstrap_tables.table_components">Table
@@ -1217,17 +1297,20 @@
                             data-i18n="nav.data_tables.dt_advanced_initialization">Advanced
                             initialisation</a>
                     </li>
-                    <li><a class="menu-item" href="dt-styling.html" data-i18n="nav.data_tables.dt_styling">Styling</a>
+                    <li><a class="menu-item" href="dt-styling.html"
+                            data-i18n="nav.data_tables.dt_styling">Styling</a>
                     </li>
                     <li><a class="menu-item" href="dt-data-sources.html"
-                            data-i18n="nav.data_tables.dt_data_sources">Data Sources</a>
+                            data-i18n="nav.data_tables.dt_data_sources">Data
+                            Sources</a>
                     </li>
                     <li><a class="menu-item" href="dt-api.html" data-i18n="nav.data_tables.dt_api">API</a>
                     </li>
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-th-large"></i><span class="menu-title"
-                        data-i18n="nav.datatable_extensions.main">DataTables Ext.</span></a>
+                        data-i18n="nav.datatable_extensions.main">DataTables
+                        Ext.</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="dt-extensions-autofill.html"
                             data-i18n="nav.datatable_extensions.dt_extensions_autofill">AutoFill</a>
@@ -1292,7 +1375,8 @@
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-th-list"></i><span class="menu-title"
-                        data-i18n="nav.handson_table.main">Handson Table</span></a>
+                        data-i18n="nav.handson_table.main">Handson
+                        Table</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="handson-table-appearance.html"
                             data-i18n="nav.handson_table.handson_table_appearance">Appearance</a>
@@ -1329,8 +1413,8 @@
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="table-jsgrid.html"><i class="la la-table"></i><span class="menu-title"
-                        data-i18n="nav.table_jsgrid.main">jsGrid</span></a>
+            <li class=" nav-item"><a href="table-jsgrid.html"><i class="la la-table"></i><span
+                        class="menu-title" data-i18n="nav.table_jsgrid.main">jsGrid</span></a>
             </li>
             <li class=" navigation-header">
                 <span data-i18n="nav.category.addons">Add Ons</span><i class="la la-ellipsis-h ft-minus"
@@ -1339,7 +1423,8 @@
             <li class=" nav-item"><a href="#"><i class="la la-edit"></i><span class="menu-title"
                         data-i18n="nav.editors.main">Editors</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="editor-quill.html" data-i18n="nav.editors.editor_quill">Quill</a>
+                    <li><a class="menu-item" href="editor-quill.html"
+                            data-i18n="nav.editors.editor_quill">Quill</a>
                     </li>
                     <li><a class="menu-item" href="editor-ckeditor.html"
                             data-i18n="nav.editors.editor_ckeditor">CKEditor</a>
@@ -1350,7 +1435,8 @@
                     <li><a class="menu-item" href="editor-tinymce.html"
                             data-i18n="nav.editors.editor_tinymce">TinyMCE</a>
                     </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.editors.code_editor_codemirror.main">Code
+                    <li><a class="menu-item" href="#"
+                            data-i18n="nav.editors.code_editor_codemirror.main">Code
                             Editor</a>
                         <ul class="menu-content">
                             <li><a class="menu-item" href="code-editor-codemirror.html"
@@ -1367,16 +1453,19 @@
                         data-i18n="nav.pickers.main">Pickers</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="pickers-date-&amp;-time-picker.html"
-                            data-i18n="nav.pickers.pickers_date_time_picker">Date &amp; Time
+                            data-i18n="nav.pickers.pickers_date_time_picker">Date
+                            &amp; Time
                             Picker</a>
                     </li>
                     <li><a class="menu-item" href="pickers-color-picker.html"
-                            data-i18n="nav.pickers.pickers_color_picker">Color Picker</a>
+                            data-i18n="nav.pickers.pickers_color_picker">Color
+                            Picker</a>
                     </li>
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-code-fork"></i><span class="menu-title"
-                        data-i18n="nav.jquery_ui.main">jQuery UI</span></a>
+                        data-i18n="nav.jquery_ui.main">jQuery
+                        UI</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="jquery-ui-interactions.html"
                             data-i18n="nav.jquery_ui.jquery_ui_interactions">Interactions</a>
@@ -1392,25 +1481,28 @@
                             data-i18n="nav.jquery_ui.jquery_ui_autocomplete">Autocomplete</a>
                     </li>
                     <li><a class="menu-item" href="jquery-ui-buttons-select.html"
-                            data-i18n="nav.jquery_ui.jquery_ui_buttons_select">Buttons &amp;
+                            data-i18n="nav.jquery_ui.jquery_ui_buttons_select">Buttons
+                            &amp;
                             Select</a>
                     </li>
                     <li><a class="menu-item" href="jquery-ui-slider-spinner.html"
-                            data-i18n="nav.jquery_ui.jquery_ui_slider_spinner">Slider &amp;
+                            data-i18n="nav.jquery_ui.jquery_ui_slider_spinner">Slider
+                            &amp;
                             Spinner</a>
                     </li>
                     <li><a class="menu-item" href="jquery-ui-dialog-tooltip.html"
-                            data-i18n="nav.jquery_ui.jquery_ui_dialog_tooltip">Dialog &amp;
+                            data-i18n="nav.jquery_ui.jquery_ui_dialog_tooltip">Dialog
+                            &amp;
                             Tooltip</a>
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="add-on-block-ui.html"><i class="la la-terminal"></i><span class="menu-title"
-                        data-i18n="nav.add_on_block_ui.main">Block
+            <li class=" nav-item"><a href="add-on-block-ui.html"><i class="la la-terminal"></i><span
+                        class="menu-title" data-i18n="nav.add_on_block_ui.main">Block
                         UI</span></a>
             </li>
-            <li class=" nav-item"><a href="add-on-image-cropper.html"><i class="la la-crop"></i><span class="menu-title"
-                        data-i18n="nav.add_on_image_cropper.main">Image
+            <li class=" nav-item"><a href="add-on-image-cropper.html"><i class="la la-crop"></i><span
+                        class="menu-title" data-i18n="nav.add_on_image_cropper.main">Image
                         Cropper</span></a>
             </li>
             <li class=" nav-item"><a href="add-on-drag-drop.html"><i class="la la-mouse-pointer"></i><span
@@ -1418,7 +1510,8 @@
                         Drop</span></a>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-cloud-upload"></i><span class="menu-title"
-                        data-i18n="nav.file_uploaders.main">File Uploader</span></a>
+                        data-i18n="nav.file_uploaders.main">File
+                        Uploader</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="file-uploader-dropzone.html"
                             data-i18n="nav.file_uploaders.file_uploader_dropzone">Dropzone</a>
@@ -1426,9 +1519,11 @@
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-calendar"></i><span class="menu-title"
-                        data-i18n="nav.event_calendars.main">Event Calendars</span></a>
+                        data-i18n="nav.event_calendars.main">Event
+                        Calendars</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="#" data-i18n="nav.event_calendars.full_calender.main">Full
+                    <li><a class="menu-item" href="#"
+                            data-i18n="nav.event_calendars.full_calender.main">Full
                             Calendar</a>
                         <ul class="menu-content">
                             <li><a class="menu-item" href="full-calender-basic.html"
@@ -1465,7 +1560,8 @@
                             String</a>
                     </li>
                     <li><a class="menu-item" href="i18n-on-init.html"
-                            data-i18n="nav.internationalization.i18n_on_init">On Init</a>
+                            data-i18n="nav.internationalization.i18n_on_init">On
+                            Init</a>
                     </li>
                     <li><a class="menu-item" href="i18n-after-init.html"
                             data-i18n="nav.internationalization.i18n_after_init">After
@@ -1477,20 +1573,25 @@
                 </ul>
             </li>
             <li class=" navigation-header">
-                <span data-i18n="nav.category.charts_maps">Charts &amp; Maps</span><i class="la la-ellipsis-h ft-minus"
-                    data-toggle="tooltip" data-placement="right" data-original-title="Charts &amp; Maps"></i>
+                <span data-i18n="nav.category.charts_maps">Charts &amp; Maps</span><i
+                    class="la la-ellipsis-h ft-minus" data-toggle="tooltip" data-placement="right"
+                    data-original-title="Charts &amp; Maps"></i>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-bar-chart"></i><span class="menu-title"
-                        data-i18n="nav.google_charts.main">google Charts</span></a>
+                        data-i18n="nav.google_charts.main">google
+                        Charts</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="google-bar-charts.html"
-                            data-i18n="nav.google_charts.google_bar_charts">Bar charts</a>
+                            data-i18n="nav.google_charts.google_bar_charts">Bar
+                            charts</a>
                     </li>
                     <li><a class="menu-item" href="google-line-charts.html"
-                            data-i18n="nav.google_charts.google_line_charts">Line charts</a>
+                            data-i18n="nav.google_charts.google_line_charts">Line
+                            charts</a>
                     </li>
                     <li><a class="menu-item" href="google-pie-charts.html"
-                            data-i18n="nav.google_charts.google_pie_charts">Pie charts</a>
+                            data-i18n="nav.google_charts.google_pie_charts">Pie
+                            charts</a>
                     </li>
                     <li><a class="menu-item" href="google-scatter-charts.html"
                             data-i18n="nav.google_charts.google_scatter_charts">Scatter
@@ -1510,15 +1611,18 @@
                         data-i18n="nav.echarts.main">Echarts</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="echarts-line-area-charts.html"
-                            data-i18n="nav.echarts.echarts_line_area_charts">Line &amp; Area
+                            data-i18n="nav.echarts.echarts_line_area_charts">Line
+                            &amp; Area
                             charts</a>
                     </li>
                     <li><a class="menu-item" href="echarts-bar-column-charts.html"
-                            data-i18n="nav.echarts.echarts_bar_column_charts">Bar &amp;
+                            data-i18n="nav.echarts.echarts_bar_column_charts">Bar
+                            &amp;
                             Column charts</a>
                     </li>
                     <li><a class="menu-item" href="echarts-pie-doughnut-charts.html"
-                            data-i18n="nav.echarts.echarts_pie_doughnut_charts">Pie &amp;
+                            data-i18n="nav.echarts.echarts_pie_doughnut_charts">Pie
+                            &amp;
                             Doughnut charts</a>
                     </li>
                     <li><a class="menu-item" href="echarts-scatter-charts.html"
@@ -1526,7 +1630,8 @@
                             charts</a>
                     </li>
                     <li><a class="menu-item" href="echarts-radar-chord-charts.html"
-                            data-i18n="nav.echarts.echarts_radar_chord_charts">Radar &amp;
+                            data-i18n="nav.echarts.echarts_radar_chord_charts">Radar
+                            &amp;
                             Chord charts</a>
                     </li>
                     <li><a class="menu-item" href="echarts-funnel-gauges-charts.html"
@@ -1547,13 +1652,16 @@
                         data-i18n="nav.chartjs.main">Chartjs</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="chartjs-line-charts.html"
-                            data-i18n="nav.chartjs.chartjs_line_charts">Line charts</a>
+                            data-i18n="nav.chartjs.chartjs_line_charts">Line
+                            charts</a>
                     </li>
                     <li><a class="menu-item" href="chartjs-bar-charts.html"
-                            data-i18n="nav.chartjs.chartjs_bar_charts">Bar charts</a>
+                            data-i18n="nav.chartjs.chartjs_bar_charts">Bar
+                            charts</a>
                     </li>
                     <li><a class="menu-item" href="chartjs-pie-doughnut-charts.html"
-                            data-i18n="nav.chartjs.chartjs_pie_doughnut_charts">Pie &amp;
+                            data-i18n="nav.chartjs.chartjs_pie_doughnut_charts">Pie
+                            &amp;
                             Doughnut charts</a>
                     </li>
                     <li><a class="menu-item" href="chartjs-scatter-charts.html"
@@ -1561,7 +1669,8 @@
                             charts</a>
                     </li>
                     <li><a class="menu-item" href="chartjs-polar-radar-charts.html"
-                            data-i18n="nav.chartjs.chartjs_polar_radar_charts">Polar &amp;
+                            data-i18n="nav.chartjs.chartjs_polar_radar_charts">Polar
+                            &amp;
                             Radar charts</a>
                     </li>
                     <li><a class="menu-item" href="chartjs-advance-charts.html"
@@ -1571,9 +1680,11 @@
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-line-chart"></i><span class="menu-title"
-                        data-i18n="nav.d3_charts.main">D3 Charts</span></a>
+                        data-i18n="nav.d3_charts.main">D3
+                        Charts</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="d3-line-chart.html" data-i18n="nav.d3_charts.d3_line_chart">Line
+                    <li><a class="menu-item" href="d3-line-chart.html"
+                            data-i18n="nav.d3_charts.d3_line_chart">Line
                             Chart</a>
                     </li>
                     <li><a class="menu-item" href="d3-bar-chart.html" data-i18n="nav.d3_charts.d3_bar_chart">Bar
@@ -1583,38 +1694,49 @@
                             Chart</a>
                     </li>
                     <li><a class="menu-item" href="d3-circle-diagrams.html"
-                            data-i18n="nav.d3_charts.d3_circle_diagrams">Circle Diagrams</a>
+                            data-i18n="nav.d3_charts.d3_circle_diagrams">Circle
+                            Diagrams</a>
                     </li>
-                    <li><a class="menu-item" href="d3-tree-chart.html" data-i18n="nav.d3_charts.d3_tree_chart">Tree
+                    <li><a class="menu-item" href="d3-tree-chart.html"
+                            data-i18n="nav.d3_charts.d3_tree_chart">Tree
                             Chart</a>
                     </li>
-                    <li><a class="menu-item" href="d3-other-charts.html" data-i18n="nav.d3_charts.d3_other_charts">Other
+                    <li><a class="menu-item" href="d3-other-charts.html"
+                            data-i18n="nav.d3_charts.d3_other_charts">Other
                             Charts</a>
                     </li>
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-indent"></i><span class="menu-title"
-                        data-i18n="nav.c3_charts.main">C3 Charts</span></a>
+                        data-i18n="nav.c3_charts.main">C3
+                        Charts</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="c3-line-chart.html" data-i18n="nav.c3_charts.c3_line_chart">Line
+                    <li><a class="menu-item" href="c3-line-chart.html"
+                            data-i18n="nav.c3_charts.c3_line_chart">Line
                             Chart</a>
                     </li>
-                    <li><a class="menu-item" href="c3-bar-pie-chart.html" data-i18n="nav.c3_charts.c3_bar_pie_chart">Bar
+                    <li><a class="menu-item" href="c3-bar-pie-chart.html"
+                            data-i18n="nav.c3_charts.c3_bar_pie_chart">Bar
                             &amp; Pie Chart</a>
                     </li>
-                    <li><a class="menu-item" href="c3-axis-chart.html" data-i18n="nav.c3_charts.c3_axis_chart">Axis
+                    <li><a class="menu-item" href="c3-axis-chart.html"
+                            data-i18n="nav.c3_charts.c3_axis_chart">Axis
                             Chart</a>
                     </li>
-                    <li><a class="menu-item" href="c3-data-chart.html" data-i18n="nav.c3_charts.c3_data_chart">Data
+                    <li><a class="menu-item" href="c3-data-chart.html"
+                            data-i18n="nav.c3_charts.c3_data_chart">Data
                             Chart</a>
                     </li>
-                    <li><a class="menu-item" href="c3-grid-chart.html" data-i18n="nav.c3_charts.c3_grid_chart">Grid
+                    <li><a class="menu-item" href="c3-grid-chart.html"
+                            data-i18n="nav.c3_charts.c3_grid_chart">Grid
                             Chart</a>
                     </li>
                     <li><a class="menu-item" href="c3-transform-chart.html"
-                            data-i18n="nav.c3_charts.c3_transform_chart">Transform Chart</a>
+                            data-i18n="nav.c3_charts.c3_transform_chart">Transform
+                            Chart</a>
                     </li>
-                    <li><a class="menu-item" href="c3-other-charts.html" data-i18n="nav.c3_charts.c3_other_charts">Other
+                    <li><a class="menu-item" href="c3-other-charts.html"
+                            data-i18n="nav.c3_charts.c3_other_charts">Other
                             Charts</a>
                     </li>
                 </ul>
@@ -1623,36 +1745,43 @@
                         data-i18n="nav.chartist.main">Chartist</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="chartist-line-charts.html"
-                            data-i18n="nav.chartist.chartist_line_charts">Line charts</a>
+                            data-i18n="nav.chartist.chartist_line_charts">Line
+                            charts</a>
                     </li>
                     <li><a class="menu-item" href="chartist-bar-charts.html"
-                            data-i18n="nav.chartist.chartist_bar_charts">Bar charts</a>
+                            data-i18n="nav.chartist.chartist_bar_charts">Bar
+                            charts</a>
                     </li>
                     <li><a class="menu-item" href="chartist-pie-charts.html"
-                            data-i18n="nav.chartist.chartist_pie_charts">Pie charts</a>
+                            data-i18n="nav.chartist.chartist_pie_charts">Pie
+                            charts</a>
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="morris-charts.html"><i class="la la-share-alt"></i><span class="menu-title"
-                        data-i18n="nav.morris_charts.main">Morris
+            <li class=" nav-item"><a href="morris-charts.html"><i class="la la-share-alt"></i><span
+                        class="menu-title" data-i18n="nav.morris_charts.main">Morris
                         Charts</span></a>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-bolt"></i><span class="menu-title"
-                        data-i18n="nav.flot_charts.main">Flot Charts</span></a>
+                        data-i18n="nav.flot_charts.main">Flot
+                        Charts</span></a>
                 <ul class="menu-content">
                     <li><a class="menu-item" href="flot-line-charts.html"
-                            data-i18n="nav.flot_charts.flot_line_charts">Line charts</a>
-                    </li>
-                    <li><a class="menu-item" href="flot-bar-charts.html" data-i18n="nav.flot_charts.flot_bar_charts">Bar
+                            data-i18n="nav.flot_charts.flot_line_charts">Line
                             charts</a>
                     </li>
-                    <li><a class="menu-item" href="flot-pie-charts.html" data-i18n="nav.flot_charts.flot_pie_charts">Pie
+                    <li><a class="menu-item" href="flot-bar-charts.html"
+                            data-i18n="nav.flot_charts.flot_bar_charts">Bar
+                            charts</a>
+                    </li>
+                    <li><a class="menu-item" href="flot-pie-charts.html"
+                            data-i18n="nav.flot_charts.flot_pie_charts">Pie
                             charts</a>
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="rickshaw-charts.html"><i class="la la-bullseye"></i><span class="menu-title"
-                        data-i18n="nav.rickshaw_charts.main">Rickshaw
+            <li class=" nav-item"><a href="rickshaw-charts.html"><i class="la la-bullseye"></i><span
+                        class="menu-title" data-i18n="nav.rickshaw_charts.main">Rickshaw
                         Charts</span></a>
             </li>
             <li class=" nav-item"><a href="#"><i class="la la-map"></i><span class="menu-title"
@@ -1681,7 +1810,8 @@
                     <li><a class="menu-item" href="#" data-i18n="nav.maps.vector_maps.main">Vector
                             Maps</a>
                         <ul class="menu-content">
-                            <li><a class="menu-item" href="#" data-i18n="nav.maps.vector_maps.jquery_mapael.main">jQuery
+                            <li><a class="menu-item" href="#"
+                                    data-i18n="nav.maps.vector_maps.jquery_mapael.main">jQuery
                                     Mapael</a>
                                 <ul class="menu-content">
                                     <li><a class="menu-item" href="vector-maps-mapael-basic.html"

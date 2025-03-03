@@ -23,6 +23,7 @@ class CategoryService
         ->addColumn('name', function($category){
             return $category->getTranslation('name', app()->getLocale());
         })
+
         ->addColumn('products_count', function($category){
             return $category->products->count() == 0 ? trans('dashboard.no_data') : $category->products->count();
         })

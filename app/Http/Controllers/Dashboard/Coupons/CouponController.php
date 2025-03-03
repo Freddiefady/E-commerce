@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Dashboard\Coupons;
 
 use App\Http\Controllers\Controller;
 use App\Services\Coupons\CouponService;
-use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\Dashboard\CouponRequest;
 
 class CouponController extends Controller

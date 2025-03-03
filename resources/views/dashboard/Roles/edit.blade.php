@@ -58,7 +58,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="userinput2">{{__('dashboard.role_name_en')}}</label>
+                                            <label for="userinput2">{{__('dashboard.role_name_ar')}}</label>
                                             <input type="text" id="userinput2" class="form-control border-primary" value="{{$role->getTranslation('role', 'ar') }}"
                                                 placeholder="{{__('dashboard.role_name_en')}}" name="role[ar]">
                                             @error('role.ar')
@@ -69,19 +69,19 @@
                                 </div>
                                 <div class="row">
                                 @if (config('app.locale') == 'ar')
-                                @foreach (config('permissions_ar') as $key=>$value)
+                                @foreach (config('permissions_ar') as $key => $value)
                                     <div class="col-md-2">
-                                        <input type="checkbox" value="{{$key}}" name="permissions[]" class="checkbox"
-                                        @checked(in_array($key, explode(',', $role->permissions)))>
-                                        <label class="form-check-label" for="checkbox1">{{ $value }}</label>
+                                        <input type="checkbox" value="{{$key}}" name="permissions[]" class="checkbox" id="checkbox1{{ $key }}"
+                                        @checked(in_array($key,json_decode($role->permissions)))>
+                                        <label class="form-check-label" for="checkbox1{{ $key }}">{{ $value }}</label>
                                     </div>
                                 @endforeach
                                 @else
                                 @foreach (config('permissions_en') as $key=>$value)
                                     <div class="col-md-2">
-                                        <input type="checkbox" value="{{$key}}" name="permissions[]" class="checkbox"
-                                        @checked(in_array($key, explode(',', $role->permissions)))>
-                                        <label class="form-check-label" for="checkbox1">{{ $value }}</label>
+                                        <input type="checkbox" value="{{$key}}" name="permissions[]" class="checkbox" id="checkbox1{{ $key }}"
+                                        @checked(in_array($key, json_decode($role->permissions)))>
+                                        <label class="form-check-label" for="checkbox1{{ $key }}">{{ $value }}</label>
                                     </div>
                                 @endforeach
                                 @endif

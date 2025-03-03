@@ -19,7 +19,7 @@
                     </div>
                 </div>
             </div>
-            <!-- @include('components.button-actions') -->
+            {{-- <x-button-actions></x-button-actions> --}}
         </div>
         <!-- Basic Tables start -->
         <div class="row">
@@ -39,8 +39,8 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            @include('components.tostar-success')
-                            @include('components.tostar-error')
+                            <x-tostar-success></x-tostar-success>
+                            <x-tostar-error></x-tostar-error>
                             <p class="card-text">As well as being able to pass language information to DataTables
                                 through the language initialization option, you can also store
                                 the language information in a file, which DataTables can load
@@ -50,10 +50,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>{{__('auth.name')}}</th>
-<<<<<<< HEAD
                                         <th>{{__('dashboard.products_count')}}</th>
-=======
->>>>>>> main
                                         <th>{{__('dashboard.status')}}</th>
                                         <th>{{__('dashboard.created_at')}}</th>
                                         <th>{{__('dashboard.operations')}}</th>
@@ -65,10 +62,7 @@
                                 <tfoot>
                                     <th>#</th>
                                     <th>{{__('auth.name')}}</th>
-<<<<<<< HEAD
                                     <th>{{__('dashboard.products_count')}}</th>
-=======
->>>>>>> main
                                     <th>{{__('dashboard.status')}}</th>
                                     <th>{{__('dashboard.created_at')}}</th>
                                     <th>{{__('dashboard.operations')}}</th>
@@ -112,14 +106,10 @@
                 }
             },
             ajax: "{{ route(name: 'dashboard.categories.all') }}",
-
             columns: [
                 { data: 'DT_RowIndex', name: 'DT_RowIndex', searchable: false, orderable: false },
                 { data: 'name', name: 'name' },
-<<<<<<< HEAD
                 { data: 'products_count', name: 'products_count' },
-=======
->>>>>>> main
                 { data: 'status', name: 'status' },
                 { data: 'date', name: 'date' },
                 { data: 'action', searchable: false, orderable: false }
@@ -141,7 +131,7 @@
 let title = "{{__('dashboard.title_swal')}}";
 let text = "{{__('dashboard.text_swal')}}";
 let confirmText = "{{__('dashboard.confirm_text_swal')}}";
-let CancelText = "{{__('dashboard.Cancel_text_swal')}}";
+let CancelText = "{{__('dashboard.cancel_text_swal')}}";
 let deletedTitle = "{{__('dashboard.deleted_title_swal')}}";
 let deletedText = "{{__('dashboard.deleted_text_swal')}}";
 let cancelledTitle = "{{__('dashboard.cancelled_title_swal')}}";

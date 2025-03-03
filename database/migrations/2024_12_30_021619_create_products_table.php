@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -19,14 +20,16 @@ return new class extends Migration
             $table->boolean('status')->default(1);
             $table->string('sku');
             $table->date('avaliable_for')->nullable();
-            $table->integer('views')->default(0);
-            $table->decimal('price', 8, 3);
-            $table->decimal('discount');
+            $table->integer('views');
+            $table->boolean('has_variants')->default(0);
+            $table->decimal('price', 8, 3)->nullable(); //if has variant it will be null
+            $table->decimal('has_discount')->default(0); //if has variant it will be null
+            $table->decimal('discount')->nullable();
             $table->date('start_discount')->nullable();
             $table->date('end_discount')->nullable();
-            $table->boolean('manage_stock')->default(false);
-            $table->integer('quantity');
-            $table->integer('avaliable_in_stock')->default(true);
+            $table->boolean('manage_stock')->default(0);
+            $table->integer('quantity'); //if has variant it will be null
+            $table->integer('avaliable_in_stock')->default(1);
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->foreignId('brand_id')->constrained('brands')->cascadeOnDelete();
             $table->timestamps();

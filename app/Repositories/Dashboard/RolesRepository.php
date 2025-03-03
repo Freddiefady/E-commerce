@@ -6,13 +6,6 @@ use App\Models\Role;
 
 class RolesRepository
 {
-    /**
-     * Create a new class instance.
-     */
-    public function __construct()
-    {
-        //
-    }
     public function getRoleById($id)
     {
         return Role::find($id);

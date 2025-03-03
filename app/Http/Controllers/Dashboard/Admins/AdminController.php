@@ -28,8 +28,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        $admin = $this->rolesService->getRoles();
-        return view('dashboard.admins.create', compact('admin'));
+        $roles = $this->rolesService->getRoles();
+        return view('dashboard.admins.create', compact('roles'));
     }
 
     /**
@@ -37,21 +37,10 @@ class AdminController extends Controller
      */
     public function store(AdminRequest $request)
     {
-        if (!$this->adminService->createAdmin($request->only(['name', 'email', 'password', 'role_id']))) {
+        if (!$this->adminService->createAdmin($request->except(['name', 'email', 'password', 'role_id']))) {
             return redirect()->back()->with('error', __('dashboard.msg_error_admin'));
         }
         return redirect()->route('dashboard.admins.index')->with('success', __('dashboard.msg_success_admin'));
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        if (!$admin = $this->adminService->getAdminById($id)) {
-            return redirect()->back()->with('error', __('dashboard.msg_error_admin'));
-        }
-        return view('dashboard.admins.show', compact('admin'));
     }
 
     /**

@@ -25,5 +25,6 @@ return [
     'comments' => 'Manage Comments',
     'socials' => 'Manage Socials',
     'menus' => 'Manage Menus',
-    'global_shipping' => 'Shipping Management'
+    'global_shipping' => 'Shipping Management',
+    'attributes' => 'Manage Attributes',
 ];
