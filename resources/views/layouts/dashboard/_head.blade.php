@@ -80,4 +80,3 @@
     <!-- Fileinput -->
     <link rel="stylesheet" href="{{asset('vendor/fileinput/css/fileinput.min.css')}}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" crossorigin="anonymous">
-

@@ -32,7 +32,7 @@ $(".icons-tab-steps").steps({
         finish: 'Submit'
     },
     onFinished: function (event, currentIndex) {
-        alert("Form submitted.");
+        // alert("Form submitted.");
     }
 });
 

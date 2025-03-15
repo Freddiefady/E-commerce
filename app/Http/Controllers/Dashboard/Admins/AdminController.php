@@ -37,7 +37,7 @@ class AdminController extends Controller
      */
     public function store(AdminRequest $request)
     {
-        if (!$this->adminService->createAdmin($request->except(['name', 'email', 'password', 'role_id']))) {
+        if (! $this->adminService->createAdmin($request->only(['name', 'email', 'password', 'status', 'role_id']))) {
             return redirect()->back()->with('error', __('dashboard.msg_error_admin'));
         }
         return redirect()->route('dashboard.admins.index')->with('success', __('dashboard.msg_success_admin'));
@@ -60,8 +60,7 @@ class AdminController extends Controller
      */
     public function update(AdminRequest $request, string $id)
     {
-        $data = $request->only(['name', 'email', 'password', 'role_id', 'status']);
-        if (!$this->adminService->updateAdmin($data, $id)) {
+        if (! $this->adminService->updateAdmin($request->only(['name', 'email', 'password', 'role_id', 'status']), $id)) {
             return redirect()->back()->with('error', __('dashboard.msg_error_admin'));
         }
         return redirect()->route('dashboard.admins.index')->with('success', __('dashboard.msg_success_update_admin'));

@@ -14,9 +14,9 @@ class Role extends Model
     // protected $casts = ['permissions' => 'array'];
     protected $fillable = ['role', 'permissions'];
 
-    // public function getPermissionsAttribute($permissions)
+    // public function getPermissionsAttribute($value)
     // {
-    //     return json_decode($permissions);
+    //     return json_decode($value);
     // }
     public function admins()
     {
