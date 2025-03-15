@@ -23,7 +23,7 @@ class Governorate extends Model
         return $this->hasMany(City::class);
     }
     public function shippingGoverno() {
-        return $this->hasOne(Shipping_governorate::class);
+        return $this->hasOne(ShippingGovernorate::class);
     }
     public function users() {
         return $this->hasMany(User::class);

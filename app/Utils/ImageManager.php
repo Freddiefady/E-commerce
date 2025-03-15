@@ -50,8 +50,18 @@ class ImageManager {
         self::storeImageInLocal($image, $path, $fileName, $disk);
         return $fileName;
     }
+    public function uploadMultipleImages($images, $model, $disk)
+    {
+        foreach ($images as $image) {
+            $fileName = self::generateImageName($image);
+            self::storeImageInLocal($image, '/', $fileName, $disk);
+            $model->images()->create([
+                'file_name' => $fileName
+            ]);
+        }
+    }
 
-    public function generateImageName($image)
+    private function generateImageName($image)
     {
         return Str::uuid() . time() . $image->getClientOriginalExtension();
     }
@@ -61,7 +71,6 @@ class ImageManager {
         $image->storeAs($path, $fileName, ['disk' => $disk]);
     }
 
-    public function uploadMultipleImages($images, $path, $disk){}
     public static function deleteImageFromLocal($image_path)
     {
         if (file_exists(public_path($image_path))) {
